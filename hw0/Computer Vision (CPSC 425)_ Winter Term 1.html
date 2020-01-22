@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- saved from url=(0057)https://www.cs.ubc.ca/~lsigal/425_2019W2/Assignment0.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Computer Vision (CPSC 425): Winter Term 1</title>
+
+<meta name="author" content="Leonid Sigal / Original design by Andreas Viklund - http://andreasviklund.com">
+  <script src="./Computer Vision (CPSC 425)_ Winter Term 1_files/jquery-1.js.download"></script>
+  <link rel="stylesheet" href="./Computer Vision (CPSC 425)_ Winter Term 1_files/bootstrap-theme.css">
+  <link rel="stylesheet" href="./Computer Vision (CPSC 425)_ Winter Term 1_files/andreas09.css" type="text/css" media="screen">
+  <script src="./Computer Vision (CPSC 425)_ Winter Term 1_files/bootstrap.js.download"></script>
+  
+<link rel="stylesheet" type="text/css" href="./Computer Vision (CPSC 425)_ Winter Term 1_files/sunburst.css"></head>
+ 
+<body>
+<div id="container">
+
+<div id="sitename">
+<table width="100%">
+<tbody><tr><td>
+   <h1>Leonid Sigal</h1>
+   <h2>Associate Professor, University of British Columbia</h2>
+</td><td align="right">
+    <img src="./Computer Vision (CPSC 425)_ Winter Term 1_files/UBC_logo.png" height="60">
+    <img src="./Computer Vision (CPSC 425)_ Winter Term 1_files/Vector.png" height="60">
+    <img src="./Computer Vision (CPSC 425)_ Winter Term 1_files/BorealisAI_logo.png" height="60">    
+</td>
+</tr></tbody></table>
+</div>
+
+<div id="mainmenu">
+<ul>
+
+</ul>
+</div>
+ 
+<div id="wrap">
+
+<div id="leftside">
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+<h1>Menu</h1>
+<p>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/index.html">Home</a><span class="hide"> | </span>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/about.html">About</a><span class="hide"> | </span>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/about.html#biography">Biography</a><span class="hide"> | </span>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/about.html#cv">CV</a>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/people.html">Students and Collaborators</a><span class="hide"> | </span>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/research.html">Research</a><span class="hide"> | </span>
+<a class="nav active" href="https://www.cs.ubc.ca/~lsigal/teaching.html">Teaching</a><span class="hide"> | </span>
+<a class="nav sub active" href="https://www.cs.ubc.ca/~lsigal/teaching19_Term2.html">CPSC 425 <br> Winter 2, 2019</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching18_Term2.html">CPSC 425 <br> Winter 2, 2018</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching18.html">CPSC 532S <br> Winter 2, 2018</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching18_Term1.html">CPSC 425 <br> Winter 1, 2018</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching17.html">CPSC 532L <br> Winter 2, 2017</a>
+<a class="nav sub" href="http://www.cs.cmu.edu/~yaser/Fall2012_15869.html">CMU 15-869 <br> Fall 2012 </a>
+<a class="nav sub" href="https://docs.google.com/document/pub?id=1jGBn7zPDEaU33fJwi3YI_usWS-U6gpSSJotV_2gDrL0">CMU 16-824 <br> Spring 2012 </a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching08.html">CSCD18 Fall 2008</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching07.html">CSCD18 Fall 2007</a>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/publications_type.html">Publications</a><span class="hide"> | </span>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/download.html">Code and Data</a><span class="hide"> | </span>
+<!-- <a class="nav" href="personal.html">Personal</a><span class="hide"> | </span> -->
+</p>
+
+<h1>Contact</h1>
+Dep. of Computer Science <br>
+University of British Columbia <br>
+ICCS 119 <br>
+2366 Main Mall <br> 
+Vancouver, B.C. V6T 1Z4 <br>
+CANADA <br><br>
+<strong>Phone:</strong> 1-604-822-4368 <br>
+<strong>Email:</strong> lsigal at cs.ubc.ca  <br>
+</div>
+
+<div id="rightside">
+
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+
+
+        
+</div>
+
+<div id="content">
+
+  <div class="container">
+    <div class="page-header">
+    <br>
+    <center>
+    <h1>Assignment 0: Introduction to Python for Computer Vision</h1>
+    </center>
+    </div> 
+  </div>
+
+  <br>
+  <div class="container">
+    <a name="courseinfo"></a>
+    <p class="medium"> 
+    This assignment is a self-directed study to introduce you to the basics of Python for computer vision. There is nothing to hand in and no marks will be given.  You should aim to complete this assignment by <b>Tuesday, January 14, 2020.</b>
+    </p>
+
+    <p class="medium"> 
+    This assignment and all subsequent assignments use libraries contained in the Enthought Python Distribution&nbsp;(EPD). Submitted assignments must work based on, and only on, specified libraries included in Enthought.
+    </p>
+
+    <p class="medium"> 
+    The Enthought Python Distribution is available in the undergraduate unix labs. Here, we also provide information on how to obtain and install the Enthought Python distribution on your personal machine.
+    </p>
+
+    <h2>The Assignment </h2>
+    
+    <h3>1) Python Distribution</h3>
+
+    <p class="medium">
+    <b>On an undergraduate lab machine:</b> To start the Python distribution from a unix shell, do the following:
+    </p>
+
+    <pre class="prettyprint lang-py prettyprinted" style=""><span class="pln">	    </span><code class="prettyprint lang-py"><span class="pln">
+        </span><span class="com"># start Python</span><span class="pln">
+        python
+	    </span></code><span class="pln">
+    </span></pre>
+    
+    <p class="medium">
+    Note: “<tt>&gt;&gt;&gt;</tt>” is the Python shell prompt (and you're ready to go).
+    </p>
+
+    <p class="medium">    
+    <b>On your personal machine:</b> Enthought installs both Python and a collection of programming libraries for scientific and mathematical work. The key libraries we are interested in are PIL, numpy, matplotlib, and scipy; they will be shipped with Enthought. Enthought can be installed on Windows, OSX, or Unix. The version we are using in this course is Python 2.7 and Enthought Canopy 2.1.9. You can find the download page here (https://assets.enthought.com/downloads/). Please make sure the Canopy version is 2.1.9 and the Python version is 2.7. 
+    </p>
+    
+    <p class="medium">
+    The installation should be straightforward. Please consult the installation guide (http://docs.enthought.com/canopy/quick-start.html) or attend a TA office hour if you have difficulty.
+    </p>
+
+    <p class="medium">
+    <b>Note:</b> Please check the Python and Canopy version if you are using a department machine. In general, we are not very strict about versioning; however, some starter code might break if you are using a different version. Most of them should be an easy fix, e.g., `print a` in Python 2 and `print(a)` in python 3. 
+    </p>
+
+    <h3>2) Working with Python</h3>
+    
+    <p class="medium">
+    Python v2.7.14 documentation (<a href="https://docs.python.org/release/2.7.14/">https://docs.python.org/release/2.7.14/</a>) is the official documentation page for the version of Python we are using. It includes a helpful Python tutorial (<a href="http://docs.python.org/release/2.7.14/tutorial/index.html">http://docs.python.org/release/2.7.14/tutorial/index.html</a>) for getting started. This Python Quick Guide is suggested as appropriate for someone in a 400-level Computer Science course who is not otherwise familiar with Python. For CPSC 425, you will need to know how to perform flow control and mathematical operations, how to create functions, how Python handles scoping through indentation, and file reading/writing. Follow the Python Quick Guide (or equivalent) and make sure you are comfortable with everything in the Basic Tutorial up to (but not including) "Exceptions." The material in the Advanced Tutorial, "Classes/Objects" (and beyond) won't be needed in this course. 
+    </p>
+
+    <p class="medium">
+    Additionally, you will be using numpy extensively and many lines of code in your assignments can be replaced with a few lines of numpy code. Please study a introduction tutorial on numpy (<a href="https://docs.scipy.org/doc/numpy/user/quickstart.html">a href="https://docs.scipy.org/doc/numpy/user/quickstart.html</a>). Fore more numpy materials, please visit this page (<a href="https://docs.scipy.org/doc/numpy/user/basics.html">https://docs.scipy.org/doc/numpy/user/basics.html</a>).
+    </p>
+
+    <p class="medium">
+    Some students might prefer watching tutorials as opposed to learning the documentation. You may find the Python and numpy tutorials on YouTube helpful.
+    </p>
+
+    <h3>3) Specific Examples</h3>
+
+    <p class="medium">
+    First download this test image,
+    <a href="https://www.cs.ubc.ca/~lsigal/425_2019W2/images/peacock.png">peacock.png</a> (Image credit: Tristram Southey).
+    </p>
+
+    <p class="medium">
+    Since the version of Python were are using is an interpreted language, you can either just start Python at the command line and work from there or work from your favourite text editor and run the Python code.  In future you will need to submit your code but not for this assignment.
+    </p>
+
+    <pre class="prettyprint lang-py prettyprinted" style=""><span class="pln">        </span><code class="prettyprint lang-py"><span class="pln">
+        </span><span class="com"># import the packages we need for this assignment</span><span class="pln">
+        </span><span class="kwd">from</span><span class="pln"> PIL </span><span class="kwd">import</span><span class="pln"> </span><span class="typ">Image</span><span class="pln">
+        </span><span class="kwd">import</span><span class="pln"> numpy </span><span class="kwd">as</span><span class="pln"> np
+
+        </span><span class="com"># open the test image</span><span class="pln">
+        </span><span class="com"># Note: If you didn't launch Python from the same directory where you saved</span><span class="pln">
+        </span><span class="com">#       the file, peacock.png, you'll need to provide the full path name as</span><span class="pln">
+        </span><span class="com">#       the argument to Image.open</span><span class="pln">
+        im </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">.</span><span class="pln">open</span><span class="pun">(</span><span class="str">'peacock.png'</span><span class="pun">)</span><span class="pln">
+
+        </span><span class="com"># display relevant Image class attributes: dimensions (width, height),</span><span class="pln">
+        </span><span class="com"># pixel format and file format</span><span class="pln">
+        </span><span class="kwd">print</span><span class="pln"> im</span><span class="pun">.</span><span class="pln">size</span><span class="pun">,</span><span class="pln"> im</span><span class="pun">.</span><span class="pln">mode</span><span class="pun">,</span><span class="pln"> im</span><span class="pun">.</span><span class="pln">format
+
+        </span><span class="com"># Note: PIL does not have a built-in image display tool.  Instead, principally</span><span class="pln">
+        </span><span class="com"># for debugging, there's a show method which saves an image to a temporary file</span><span class="pln">
+        </span><span class="com"># on disk and calls a platform dependent external display utility</span><span class="pln">
+        </span><span class="com"># (the default being "xv" on unix, and the "Paint" program on Windows).</span><span class="pln">
+
+        </span><span class="com"># display the image</span><span class="pln">
+        im</span><span class="pun">.</span><span class="pln">show</span><span class="pun">()</span><span class="pln">
+
+        </span><span class="com"># if this does not work on your system, try the imshow function from</span><span class="pln">
+        </span><span class="com"># matplotlib's pyplot module by uncommenting the next three lines</span><span class="pln">
+        </span><span class="com">#import matplotlib.pyplot as plt</span><span class="pln">
+        </span><span class="com">#plt.imshow(im)</span><span class="pln">
+        </span><span class="com">#plt.show()</span><span class="pln">
+
+        </span><span class="com"># convert the image to a black and white "luminance" greyscale image</span><span class="pln">
+        im </span><span class="pun">=</span><span class="pln"> im</span><span class="pun">.</span><span class="pln">convert</span><span class="pun">(</span><span class="str">'L'</span><span class="pun">)</span><span class="pln">
+
+        </span><span class="com"># select a 100x100 sub region (containing the peacock's head)</span><span class="pln">
+        im2 </span><span class="pun">=</span><span class="pln"> im</span><span class="pun">.</span><span class="pln">crop</span><span class="pun">((</span><span class="lit">475</span><span class="pun">,</span><span class="lit">130</span><span class="pun">,</span><span class="lit">575</span><span class="pun">,</span><span class="lit">230</span><span class="pun">))</span><span class="pln">
+
+        </span><span class="com"># save the selected region</span><span class="pln">
+        im2</span><span class="pun">.</span><span class="pln">save</span><span class="pun">(</span><span class="str">'peacock_head.png'</span><span class="pun">,</span><span class="str">'PNG'</span><span class="pun">)</span><span class="pln">
+
+        </span><span class="com"># PIL and numpy use different internal representations</span><span class="pln">
+        </span><span class="com"># convert the image to a numpy array (for subsequent processing)</span><span class="pln">
+        im2_array </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">asarray</span><span class="pun">(</span><span class="pln">im2</span><span class="pun">)</span><span class="pln">
+
+        </span><span class="com"># compute the average intensity</span><span class="pln">
+        average </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">mean</span><span class="pun">(</span><span class="pln">im2_array</span><span class="pun">)</span><span class="pln">
+
+        </span><span class="com"># Note: we need to make a copy to change the values of an array created using</span><span class="pln">
+        </span><span class="com"># np.asarray</span><span class="pln">
+        im3_array </span><span class="pun">=</span><span class="pln"> im2_array</span><span class="pun">.</span><span class="pln">copy</span><span class="pun">()</span><span class="pln">
+
+        </span><span class="com"># add 50 to each pixel value (clipping above at 255, the maximum uint8 value)</span><span class="pln">
+        </span><span class="com"># Note: indentation matters</span><span class="pln">
+        </span><span class="kwd">for</span><span class="pln"> x </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">100</span><span class="pun">):</span><span class="pln">
+            </span><span class="kwd">for</span><span class="pln"> y </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">100</span><span class="pun">):</span><span class="pln">
+                im3_array</span><span class="pun">[</span><span class="pln">y</span><span class="pun">,</span><span class="pln">x</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> min</span><span class="pun">(</span><span class="pln">im3_array</span><span class="pun">[</span><span class="pln">y</span><span class="pun">,</span><span class="pln">x</span><span class="pun">]</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> </span><span class="lit">255</span><span class="pun">)</span><span class="pln">
+
+        </span><span class="com"># convert the result back to a PIL image and save</span><span class="pln">
+        im3 </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">.</span><span class="pln">fromarray</span><span class="pun">(</span><span class="pln">im3_array</span><span class="pun">)</span><span class="pln">
+        im3</span><span class="pun">.</span><span class="pln">save</span><span class="pun">(</span><span class="str">'peacock_head_bright.png'</span><span class="pun">,</span><span class="str">'PNG'</span><span class="pun">)</span><span class="pln">
+
+        </span><span class="com"># again make a copy of the (original) 100x100 sub-region</span><span class="pln">
+        im4_array </span><span class="pun">=</span><span class="pln"> im2_array</span><span class="pun">.</span><span class="pln">copy</span><span class="pun">()</span><span class="pln">
+
+        </span><span class="com"># this time, reduce the intensity of each pixel by half</span><span class="pln">
+        </span><span class="com"># Note: this converts the array to a float array</span><span class="pln">
+        im4_array </span><span class="pun">=</span><span class="pln"> im4_array </span><span class="pun">*</span><span class="pln"> </span><span class="lit">0.5</span><span class="pln">
+
+        </span><span class="com"># convert the array back to a unit8 array so we can write to a file</span><span class="pln">
+        im4_array </span><span class="pun">=</span><span class="pln"> im4_array</span><span class="pun">.</span><span class="pln">astype</span><span class="pun">(</span><span class="str">'uint8'</span><span class="pun">)</span><span class="pln">
+
+        </span><span class="com"># convert the numpy array back to a PIL image and save</span><span class="pln">
+        im4 </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">.</span><span class="pln">fromarray</span><span class="pun">(</span><span class="pln">im4_array</span><span class="pun">)</span><span class="pln">
+        im4</span><span class="pun">.</span><span class="pln">save</span><span class="pun">(</span><span class="str">'peacock_head_dark.png'</span><span class="pun">,</span><span class="str">'PNG'</span><span class="pun">)</span><span class="pln">
+
+        </span><span class="com"># let's generate our own image, a simple gradient test pattern</span><span class="pln">
+        </span><span class="com"># make a 1-D array of length 256 with the values 0 - 255</span><span class="pln">
+        grad </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">arange</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">256</span><span class="pun">)</span><span class="pln">
+
+        </span><span class="com"># repeat this 1-D array 256 times to create a 256x256 2-D array</span><span class="pln">
+        grad </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">tile</span><span class="pun">(</span><span class="pln">grad</span><span class="pun">,[</span><span class="lit">256</span><span class="pun">,</span><span class="lit">1</span><span class="pun">])</span><span class="pln">
+
+        </span><span class="com"># convert to uint8 and then to a PIL image and save</span><span class="pln">
+        im5 </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">.</span><span class="pln">fromarray</span><span class="pun">(</span><span class="pln">grad</span><span class="pun">.</span><span class="pln">astype</span><span class="pun">(</span><span class="str">'uint8'</span><span class="pun">))</span><span class="pln">
+        im5</span><span class="pun">.</span><span class="pln">save</span><span class="pun">(</span><span class="str">'gradient.png'</span><span class="pun">,</span><span class="str">'PNG'</span><span class="pun">)</span><span class="pln">
+        </span></code><span class="pln">
+    </span></pre>
+
+    <br>
+
+    <h2>Deliverables</h2>
+    
+    <p class="medium">
+    There is nothing to hand in for this assignment and no marks will be given.  The objective is for you to get the Enthought Python Distribution&nbsp;(EPD) up and running on the platform of your choice, sufficient to run the above examples.  The specific examples chosen demonstrate basic functionality needed in future assignments. Thus, it is to your benefit also to try to understand what is happening at each step in each example.
+    </p>
+
+</div>
+
+<div class="clearingdiv">&nbsp;</div>
+</div>
+</div>
+<div id="footer">© 2020 Leonid Sigal | Design by <a href="http://andreasviklund.com/">Andreas Viklund</a></div>
+
+
+
+
+</div></body></html>

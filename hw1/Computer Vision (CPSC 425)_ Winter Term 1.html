@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- saved from url=(0057)https://www.cs.ubc.ca/~lsigal/425_2019W2/Assignment1.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Computer Vision (CPSC 425): Winter Term 1</title>
+
+<meta name="author" content="Leonid Sigal / Original design by Andreas Viklund - http://andreasviklund.com">
+  <script src="./Computer Vision (CPSC 425)_ Winter Term 1_files/jquery-1.js.download"></script>
+  <link rel="stylesheet" href="./Computer Vision (CPSC 425)_ Winter Term 1_files/bootstrap-theme.css">
+  <link rel="stylesheet" href="./Computer Vision (CPSC 425)_ Winter Term 1_files/andreas09.css" type="text/css" media="screen">
+  <script src="./Computer Vision (CPSC 425)_ Winter Term 1_files/bootstrap.js.download"></script>
+  
+<link rel="stylesheet" type="text/css" href="./Computer Vision (CPSC 425)_ Winter Term 1_files/sunburst.css"></head>
+ 
+<body>
+<div id="container">
+
+<div id="sitename">
+<table width="100%">
+<tbody><tr><td>
+   <h1>Leonid Sigal</h1>
+   <h2>Associate Professor, University of British Columbia</h2>
+</td><td align="right">
+    <img src="./Computer Vision (CPSC 425)_ Winter Term 1_files/UBC_logo.png" height="60">
+    <img src="./Computer Vision (CPSC 425)_ Winter Term 1_files/Vector.png" height="60">
+    <img src="./Computer Vision (CPSC 425)_ Winter Term 1_files/BorealisAI_logo.png" height="60">    
+</td>
+</tr></tbody></table>
+</div>
+
+<div id="mainmenu">
+<ul>
+
+</ul>
+</div>
+ 
+<div id="wrap">
+
+<div id="leftside">
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+<h1>Menu</h1>
+<p>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/index.html">Home</a><span class="hide"> | </span>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/about.html">About</a><span class="hide"> | </span>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/about.html#biography">Biography</a><span class="hide"> | </span>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/about.html#cv">CV</a>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/people.html">Students and Collaborators</a><span class="hide"> | </span>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/research.html">Research</a><span class="hide"> | </span>
+<a class="nav active" href="https://www.cs.ubc.ca/~lsigal/teaching.html">Teaching</a><span class="hide"> | </span>
+<a class="nav sub active" href="https://www.cs.ubc.ca/~lsigal/teaching19_Term2.html">CPSC 425 <br> Winter 2, 2019</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching18_Term2.html">CPSC 425 <br> Winter 2, 2018</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching18.html">CPSC 532S <br> Winter 2, 2018</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching18_Term1.html">CPSC 425 <br> Winter 1, 2018</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching17.html">CPSC 532L <br> Winter 2, 2017</a>
+<a class="nav sub" href="http://www.cs.cmu.edu/~yaser/Fall2012_15869.html">CMU 15-869 <br> Fall 2012 </a>
+<a class="nav sub" href="https://docs.google.com/document/pub?id=1jGBn7zPDEaU33fJwi3YI_usWS-U6gpSSJotV_2gDrL0">CMU 16-824 <br> Spring 2012 </a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching08.html">CSCD18 Fall 2008</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching07.html">CSCD18 Fall 2007</a>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/publications_type.html">Publications</a><span class="hide"> | </span>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/download.html">Code and Data</a><span class="hide"> | </span>
+<!-- <a class="nav" href="personal.html">Personal</a><span class="hide"> | </span> -->
+</p>
+
+
+<h1>Contact</h1>
+Dep. of Computer Science <br>
+University of British Columbia <br>
+ICCS 119 <br>
+2366 Main Mall <br> 
+Vancouver, B.C. V6T 1Z4 <br>
+CANADA <br><br>
+<strong>Phone:</strong> 1-604-822-4368 <br>
+<strong>Email:</strong> lsigal at cs.ubc.ca  <br>
+</div>
+
+<div id="rightside">
+
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+
+
+        
+</div>
+
+<div id="content">
+
+  <div class="container">
+    <div class="page-header">
+    <br>
+    <center>
+    <h1>Assignment 1: Image Filtering and Hybrid Images</h1>
+    </center>
+    </div> 
+  </div>
+
+    <p class="medium"> 
+    <strong>Due:</strong> At the end of the day <strong>11:59pm</strong>, Tuesday, January 28th, 2020.
+    </p>
+
+    <p class="medium"> 
+    The purpose of this assignment is to get some initial experience with Python and to learn the basics of constructing and using linear filters.
+    </p>
+
+    <p class="medium"> 
+    There are different ways to import libraries/modules into Python. Styles and practices vary.  For consistency (and to make life easier for the markers) you are required to import modules for this assignment exactly as follows:
+    </p>
+       
+    <pre class="prettyprint lang-py prettyprinted" style=""><span class="pln">	    </span><code class="prettyprint lang-py"><span class="pln">
+        </span><span class="kwd">from</span><span class="pln"> PIL </span><span class="kwd">import</span><span class="pln"> </span><span class="typ">Image</span><span class="pln">
+        </span><span class="kwd">import</span><span class="pln"> numpy </span><span class="kwd">as</span><span class="pln"> np
+        </span><span class="kwd">import</span><span class="pln"> math
+        </span><span class="kwd">from</span><span class="pln"> scipy </span><span class="kwd">import</span><span class="pln"> signal
+        </span><span class="kwd">import</span><span class="pln"> cv2
+        </span></code><span class="pln">
+    </span></pre>
+
+    <p class="medium"> 
+    <b>HINT:</b> Review Assignment 0 for the basics of reading/writing images, converting colour to greyscale, and converting PIL images to/from Numpy arrays.
+    </p>
+
+    <p class="medium">
+    Hand in all parts of this assignment using Canvas (both the code and PDF file as specified).  To get full marks, your functions (i.e., <tt>*.py</tt> files) must not only work correctly, but also must be clearly documented with sufficient comments for others to easily use and understand the code.  You will lose marks for insufficient or unclear comments.  In this assignment, you also need to hand in scripts showing tests of your functions on all the cases specified as well as the images and other answers requested. The scripts and results  (as screenshots or otherwise) should be pasted into a single PDF file and clearly labeled. Note that lack of submission of either the code or the PDF will also result in loss of points. 
+    </p>
+
+    <h2>The assignment </h2>
+    <h3> Part 1: Written Questions</h3> <code>(6 points)</code>
+    In this part of the assignment, you will be practicing filtering by hand on a given "image". You may find the questions <a href="https://www.cs.ubc.ca/~lsigal/425_2019W2/attach/assign1_written_spring_2020.pdf"> here </a> (if you are familiar with LaTex, feel free to use the following <a href="https://www.cs.ubc.ca/~lsigal/425_2019W2/attach/assign1_written_spring_2020.tex">template</a> to generate the answers). Annotate your results on the PDF. During submission, you will merge this PDF with your report. Make sure that you put this right after your report cover page.
+
+    <h3> Part 2: Gaussian Filtering</h3>
+    
+    <ol><li> <code>(3 points)</code>
+    <p class="medium">
+    In CPSC 425, we follow the convention that 2D filters always have an odd number of rows and columns (so that the center row/column of the filter is well-defined).
+    </p>
+
+    <p class="medium">
+    As a simple warm-up exercise, write a Python function, ‘<tt>boxfilter(n)</tt>’, that returns a box filter of size <tt>n</tt> by <tt>n</tt>.  You should check that <tt>n</tt> is odd, checking and signaling an error with an ‘<tt>assert</tt>’ statement.  The filter should be a Numpy array. For example, your function should work as follows:
+
+    </p><p>
+    </p><pre class="prettyprint lang-py prettyprinted" style=""><span class="pln">	    </span><code class="prettyprint lang-py"><span class="pln">
+        </span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> boxfilter</span><span class="pun">(</span><span class="lit">5</span><span class="pun">)</span><span class="pln">
+        array</span><span class="pun">([[</span><span class="pln"> </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">],</span><span class="pln">
+               </span><span class="pun">[</span><span class="pln"> </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">],</span><span class="pln">
+               </span><span class="pun">[</span><span class="pln"> </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">],</span><span class="pln">
+               </span><span class="pun">[</span><span class="pln"> </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">],</span><span class="pln">
+               </span><span class="pun">[</span><span class="pln"> </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">,</span><span class="pln">  </span><span class="lit">0.04</span><span class="pun">]])</span><span class="pln">
+
+        </span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> boxfilter</span><span class="pun">(</span><span class="lit">4</span><span class="pun">)</span><span class="pln">
+        </span><span class="typ">Traceback</span><span class="pln"> </span><span class="pun">(</span><span class="pln">most recent call last</span><span class="pun">):</span><span class="pln">
+          </span><span class="pun">...</span><span class="pln">
+        </span><span class="typ">AssertionError</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Dimension</span><span class="pln"> must be odd
+        </span></code><span class="pln">
+    </span></pre>
+    <p></p>
+
+    <p class="medium">
+    HINT: The generation of the filter can be done as a simple one-line expression.  Of course, checking that <tt>n</tt> is odd requires a bit more work.
+    </p>
+
+    <p class="medium">
+    Show the results of your <tt>boxfilter(n)</tt> function for the cases <tt>n=3</tt>, <tt>n=4</tt>, and <tt>n=5</tt>.
+    </p>
+
+    </li><li> <code>(5 points)</code>
+    <p class="medium">
+    Write a Python function, ‘<tt>gauss1d(sigma)</tt>’, that returns a 1D Gaussian filter for a given value of sigma.  The filter should be a 1D array with length 6 times sigma rounded up to the next odd integer.  Each value of the filter can be computed from the Gaussian function, <tt>exp(-&nbsp;x^2&nbsp;/&nbsp;(2*sigma^2))</tt>, where x is the distance of an array value from the center.  This formula for the Gaussian ignores the constant factor.  Therefore, you should normalize the values in the filter so that they sum to 1.
+    </p>
+
+    <p class="medium">
+    HINTS: For efficiency and compactness, it is best to avoid ‘<tt>for</tt>’ loops in Python.  One way to do this is to first generate a 1D array of values for <tt>x</tt>, and map this array through the density function.
+
+    Suppose you want to generate a 1D filter from a zero-centered Gaussian with a sigma of 1.6. The filter length would be <tt>odd(1.6*6)=11</tt>. You then generate a 1D array of x values <tt>[-5 -4 -3 -2 -1 0 1 2 3 4 5]</tt> and pass the 1D array through the given density function <tt>exp(-&nbsp;x^2&nbsp;/&nbsp;(2*sigma^2))</tt>.
+
+    </p>
+
+    <p class="medium">
+    Show the filter values produced for sigma values of 0.3, 0.5, 1, and 2.
+    </p>
+
+    </li><li> <code>(5 points)</code>
+    <p class="medium">
+    Create a Python function ‘<tt>gauss2d(sigma)</tt>’ that returns a 2D Gaussian filter for a given value of sigma.  The filter should be a 2D array.  Remember that a 2D Gaussian can be formed by convolution of a 1D Gaussian with its transpose.  You can use the function ‘<tt>convolve2d</tt>’ in the Scipy Signal Processing toolbox to do the convolution.  You will need to provide <tt>signal.convolve2d</tt> with a 2D array. To convert a 1D array, <tt>f</tt>, to a 2D array <tt>f</tt>, of the same size you use ‘<tt>f = f[np.newaxis]</tt>’
+    </p>
+
+    <p class="medium">
+    Show the 2D Gaussian filter for sigma values of 0.5 and 1.
+    </p>
+    </li><li> <code>(10 points)</code>
+    <p class="medium">
+    (a) Write a function ‘<tt>convolve2d_manual(array, filter)</tt>’ that takes in an image (stored in `array`) and a filter, and performs convolution to the image with zero paddings (thus, the image sizes of input and output are the same). Both input variables are in type `np.float32`. Note that for this implementation you should use two for-loops to iterate through each neighbourhood.
+    </p>
+   
+    <p class="medium">
+    (b) Write a function ‘<tt>gaussconvolve2d_manual(array,sigma)</tt>’ that applies Gaussian convolution to a 2D array for the given value of sigma.  The result should be a 2D array.  Do this by first generating a filter with your ‘<tt>gauss2d</tt>’, and then applying it to the array with ‘<tt>convolve2d_manual(array, filter)</tt>’
+    </p>
+    
+    <p class="medium">
+    (c) Apply your ‘<tt>gaussconvolve2d_manual</tt>’ with a sigma of 3 on the image of the <a href="./Computer Vision (CPSC 425)_ Winter Term 1_files/dog.jpg">dog</a>. Download the image (right-click on an image in your browser and choose “<tt>save as</tt>”).  Load this image into Python, convert it to a greyscale, Numpy array and run your ‘<tt>gaussconvolve2d</tt>’ (with a sigma of 3). Note, as mentioned in class, for any image filtering or processing operations converting image to a double array format will make your life a lot easier and avoid various artifacts. Once all processing operations are done, you will need to covert the array back to unsigned integer format for storage and display. 
+    </p>
+    
+    <p class="medium">
+    (d) Use PIL to show both the original and filtered images.
+    </p>
+    
+    </li><li> <code>(7 points)</code>
+    <p class="medium">
+    (a) Write a function ‘<tt>gaussconvolve2d_scipy(array,sigma)</tt>’ that applies Gaussian convolution to a 2D array for the given value of sigma.  The result should be a 2D array.  Do this by first generating a filter with your ‘<tt>gauss2d</tt>’, and then applying it to the array with <tt>signal.convolve2d(array,filter,'same')</tt>.  The ‘<tt>same</tt>’ option makes the result the same size as the image.
+    </p>
+
+    <p class="medium">
+    The Scipy Signal Processing toolbox also has a function ‘<tt>signal.correlate2d</tt>’.  Applying the filter ‘<tt>gauss2d</tt>’ to the array with <tt>signal.correlate2d(array,filter,'same')</tt> produces the same result as with <tt>signal.convolve2d(array,filter,'same')</tt>.  Why does Scipy have separate functions ‘<tt>signal.convolve2d</tt>’ and ‘<tt>signal.correlate2d</tt>’? HINT:&nbsp;Think of a situation in which ‘<tt>signal.convolve2d</tt>’ and ‘<tt>signal.correlate2d</tt>’ (with identical arguments) produce different results.
+    </p>
+
+    <p class="medium">
+    (b) Apply your ‘<tt>gaussconvolve2d_scipy</tt>’ with a sigma of 3 on the image of the <a href="./Computer Vision (CPSC 425)_ Winter Term 1_files/dog.jpg">dog</a> again. Follow instructions in part 4c for saving and loading the image.  
+    </p>
+
+    <p class="medium">
+    (c) Use PIL to show both the original and filtered images.
+    </p>
+
+    </li><li> <code>(2 points)</code>
+    <p class="medium">
+    Experiment on how much time it takes to convolve the dog image above using your convolution implementation ‘<tt>gaussconvolve2d_manual</tt>’ and the scipy implementation ‘<tt>gaussconvolve2d</tt>’. Compare and comment on the performance using a sigma of 10.0. HINT: The following code shows you how to time a function. 
+    </p>
+    <p>
+    </p><pre class="prettyprint lang-py prettyprinted" style=""><span class="pln">        </span><code class="prettyprint lang-py"><span class="pln">
+        </span><span class="kwd">import</span><span class="pln"> time
+        t1 </span><span class="pun">=</span><span class="pln"> time</span><span class="pun">.</span><span class="pln">time</span><span class="pun">()</span><span class="pln"> </span><span class="com"># start timestamp</span><span class="pln">
+        operations</span><span class="pun">()</span><span class="pln"> </span><span class="com"># some operations to time</span><span class="pln">
+        duration </span><span class="pun">=</span><span class="pln"> time</span><span class="pun">.</span><span class="pln">time</span><span class="pun">()</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> t1 </span><span class="com"># duration in seconds</span><span class="pln">
+        </span></code><span class="pln">
+    </span></pre>
+    <p></p>
+
+    </li><li> <code>(3 points)</code>
+    <p class="medium">
+    Convolution with a 2D Gaussian filter is not the most efficient way to perform Gaussian convolution on an image.  In a few sentences, explain how this could be implemented more efficiently taking advantage of separability and why, indeed, this would be faster.  NOTE:&nbsp;It is not necessary to implement this.  Just the explanation is required.  Your answer will be graded for clarity.
+    </p>
+
+    </li></ol>
+    
+    <h3> Part 3: Hybrid Images </h3>
+    <p class="medium">(credit: this part of assignment is moddeled after James Hays course at GaTech)</p>
+
+    <p class="medium">
+    Gaussian filtering produces a low-pass (blurred) filtered version of an image. Consequently, the difference between the original and the blurredlow-pass filtered counterpart results in a high-pass filtered version of the image. As defined in the original ACM Siggraph 2006 <a href="http://cvcl.mit.edu/publications/OlivaTorralb_Hybrid_Siggraph06.pdf">paper</a> a <a href="http://cvcl.mit.edu/publications/OlivaTorralb_Hybrid_Siggraph06.pdf">hybrid image</a> is the sum of a low-pass filtered version of the one image and a high-pass filtered version of a second image. There is a free parameter, which can be tuned for each image pair, which controls how much high frequency to remove from the first image and how much low frequency to leave in the second image. This is called the``cutoff-frequency''. In the paper it is suggested to use two cutoff frequencies (one tuned for each image) and you are free to try that, as well. In the starter code, the cutoff frequency is controlled by changing the standard deviation of the Gausian filter used in constructing the hybrid images.
+    </p>
+    
+    <p class="medium">
+    We provide you with pairs of aligned <a href="https://www.cs.ubc.ca/~lsigal/425_2019W2/hw1.zip">images</a> which can be merged reasonably well into hybrid images. The alignment is important because it affects the perceptual grouping (read the paper for details). We encourage you to create additional examples (e.g. change of expression, morph between different objects, change over time, etc.). See the <a href="http://cvcl.mit.edu/hybrid_gallery/gallery.html">hybrid images project page</a> for some inspiration. 
+    </p>
+    
+    <ol>
+    <li> <code>(3 points)</code>
+    <p class="medium"> Choose an appropriate sigma and create a blurred version of the one of the paired images. For this to work you will need to choose a relatively large sigma and filter each of the three color channels (RGB) separately, then compose the channels back to the color image to display. Note, you should use the same sigma for all color channels. 
+        </p><table>
+        <tbody><tr>
+           <td align="center"> <img class="none" src="./Computer Vision (CPSC 425)_ Winter Term 1_files/dog.jpg" height="250" alt="origianal"> </td>
+           <td align="center"> <img class="none" src="./Computer Vision (CPSC 425)_ Winter Term 1_files/dog_low_frequencies.jpg" height="250" alt="low frequencies (Gaussian filtered)"> </td>
+        </tr>
+        <tr>
+           <td align="center"> Original image </td>
+           <td align="center"> Gaussian filtered low frequencies image</td>
+        </tr>
+        </tbody></table>
+    <p></p> 
+
+    </li><li> <code>(3 points)</code>
+    <p class="medium"> Choose an appropriate sigma (it is suggested to use the same as above) and create a high frequency version of the second from the two the paired images. Again you will operate on each of the color channels separately and use same sigma for all channels. High frequency filtered image is obtained by first computing a low frequency Gaussian filtered image and then subtracting it from the original. The high frequency image is actually zero-mean with negative values so it is visualized by adding 128 (if you re-scaled the original image to the range between 0 and 1, then add 0.5 for visualization). In the resulting visualization illustrated below, bright values are positive and dark values are negative.
+        </p><table>
+        <tbody><tr>
+           <td align="center"> <img class="none" src="./Computer Vision (CPSC 425)_ Winter Term 1_files/cat.jpg" height="250" alt="origianal"> </td>
+           <td align="center"> <img class="none" src="./Computer Vision (CPSC 425)_ Winter Term 1_files/cat_high_frequencies.jpg" height="250" alt="high frequencies"> </td>
+        </tr>
+        <tr>
+           <td align="center"> Original image </td>
+           <td align="center"> High frequencies image</td>
+        </tr>
+        </tbody></table>
+    <p></p>
+    
+    </li><li> <code>(4 points)</code>
+    <p class="medium"> Now simply add the low and high frquency images (per channel). Note, the high frequency image that you add,should be the originally computed high friequency image (without adding 128; this addition is only done for visualizationes in the part above) You may get something like the following as a result:
+        </p><table>
+        <tbody><tr>
+           <td align="center"> <img class="none" src="./Computer Vision (CPSC 425)_ Winter Term 1_files/hybrid_image.jpg" height="250" alt="origianal"> </td>
+        </tr>
+        </tbody></table>
+    Depending on the sigma value your image may look different. Experiment with at least 3 provided sets of images or create your own hybrid. Illustrate results for 3 different values of sigma for each of the images.
+    <p></p>    
+            
+    <p class="medium"> 
+    <b>Note:</b> You may see speckle artifacts (individual pixels of bright color that do not match the image content) in the final hybrid image produced. You should be able to get rid of most, if not all, of them by clamping the values of pixels on the high and low end to ensure they are in the valid range (between 0 and 255) for the final image. You will need to do this per color channel. However, depending on the chosen value of sigma and specific set of images a few artifacts may remain. If you are unable to completely get rid of those artifacts that's OK. You will not be penalized for them, assuming all other parts of the assignment are done correctly and you made a reasonable attempt at producing a good result image (e.g., by implementing the clamping procedure described). 
+    </p>     
+    </li></ol>
+
+    <h3> Part 4: Playing with Different Denoising Filters </h3>
+    <p class="medium"> 
+    In this question, you are given two images affected by Gaussian noise and speckle noise <a href="https://www.cs.ubc.ca/~lsigal/425_2019W2/images/box_gauss.png"> box_gauss.png </a> and <a href="https://www.cs.ubc.ca/~lsigal/425_2019W2/images/box_speckle.png">box_speckle.png</a>. You will apply Gaussian filter, bilateral filter, and median filter respectively to denoise the images. Use the existing implementation in the OpenCV library ‘<tt>cv2</tt>’. Specifically, you will use the functions ‘<tt> cv2.GaussianBlur </tt>’, ‘<tt> cv2.bilateralFilter </tt>’, and ‘<tt> cv2.medianBlur </tt>’. Please consult the OpenCV documentation for more details. 
+    </p>   
+    <ol>
+    <li> <code>(6 points)</code>
+    <p class="medium"> Play with different combinations of parameters for each filter and show your best results for denoising. Include the best combinations of parameters for each filter and the corresponding resultant images in your report. Note that since you have two images and three filters, you will include a total of six denoised images. 
+    </p>
+    </li><li> <code>(3 points)</code>
+    <p class="medium"> Now try to use the following combinations for the two images, and comment the pros and cons of using Gaussian, Bilateral, and Median filter. HINT: You might need to zoom in to see the artifacts clearly.
+
+    </p><pre class="prettyprint lang-py prettyprinted" style=""><span class="pln">        </span><code class="prettyprint lang-py"><span class="pln">
+        </span><span class="kwd">import</span><span class="pln"> cv2
+        cv2</span><span class="pun">.</span><span class="typ">GaussianBlur</span><span class="pun">(</span><span class="pln">img</span><span class="pun">,</span><span class="pln"> ksize</span><span class="pun">=(</span><span class="lit">7</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">),</span><span class="pln"> sigmaX</span><span class="pun">=</span><span class="lit">50</span><span class="pun">)</span><span class="pln">
+        cv2</span><span class="pun">.</span><span class="pln">bilateralFilter</span><span class="pun">(</span><span class="pln">img</span><span class="pun">,</span><span class="pln"> </span><span class="lit">7</span><span class="pun">,</span><span class="pln"> sigmaColor</span><span class="pun">=</span><span class="lit">150</span><span class="pun">,</span><span class="pln"> sigmaSpace</span><span class="pun">=</span><span class="lit">150</span><span class="pun">)</span><span class="pln">
+        cv2</span><span class="pun">.</span><span class="pln">medianBlur</span><span class="pun">(</span><span class="pln">img</span><span class="pun">,</span><span class="lit">7</span><span class="pun">)</span><span class="pln">
+        </span></code><span class="pln">
+    </span></pre>
+    <p></p>   
+    </li></ol>
+
+    <h2>Deliverables</h2>
+    
+    <p class="medium">
+    You will hand in your assignment ellectronically through Canvas. You should hand in two files, a file containig your code (i.e.,&nbsp;<tt>*.py</tt> file).  This file must have sufficient comments for others to easily use and understand the code. In addition, hand in a PDF document showing scripts (i.e.,&nbsp;records of your interactions with the Python shell) showing the specified tests of your functions as well as the images and other answers requested. The PDF file has to be organized and easily readible / accessible.
+    </p>
+
+    <p class="medium">
+    Assignments are to be handed in before 11:59pm on their due date. 
+    </p>
+</div>
+
+<div class="clearingdiv">&nbsp;</div>
+</div>
+</div>
+<div id="footer">© 2020 Leonid Sigal | Design by <a href="http://andreasviklund.com/">Andreas Viklund</a></div>
+
+
+
+
+</body></html>
