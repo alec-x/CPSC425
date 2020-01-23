@@ -1,4 +1,4 @@
-from part2Fun import *
+from hw1Functions import *
 import time
 
 print("\nQuestion 1\n")

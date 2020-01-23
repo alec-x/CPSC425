@@ -4,7 +4,7 @@ import math
 from scipy import signal
 import cv2
 
-# Q1
+# Part 2 Q1
 
 # Returns a normalized box filter of nxn dimensions as a numpy array
 def boxfilter(n):
@@ -12,7 +12,7 @@ def boxfilter(n):
     elementNum = 1.0 / n**2
     return np.ones((n,n))*elementNum
 
-# Q2
+# Part 2 Q2
 
 # Returns the next largest odd integer, or n if n is odd.
 def roundOdd(n):
@@ -36,7 +36,7 @@ def gauss1d(sigma):
     # Normalize gaussian filter
     return gaussNotNormal/sum(gaussNotNormal)
 
-# Q3
+# Part 2 Q3
 
 # Returns a normalized 2D gaussian filter as a numpy array the size of the
 # filter is determined by 6*sigma rounded to the next odd number
@@ -48,7 +48,7 @@ def gauss2d(sigma):
     convolution = signal.convolve2d(dim1, dim2)
     return convolution/sum(convolution.flatten())
 
-# Q4
+# Part 2 Q4
 
 # Returns the convolution of an input array and its filter
 def convolve2d_manual(array, filter):
@@ -71,7 +71,7 @@ def gaussconvolve2d_manual(array, sigma):
     gaussFilter = gauss2d(sigma)
     return convolve2d_manual(array, gaussFilter)
 
-# Q5
+# Part 2 Q5
 
 # Returns the convolution of an input array and a gaussian filter
 # note that this, unlike the manual implementation, is not padded.
