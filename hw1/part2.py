@@ -1,5 +1,7 @@
 import numpy as np
 from scipy.signal import convolve2d
+from PIL import Image
+import time
 
 # Q1
 def boxfilter(n):
@@ -43,6 +45,11 @@ def gaussconvolve2d_manual(array, sigma):
     gaussFilter = gauss2d(sigma)
     return convolve2d_manual(array, gaussFilter)
 
+# Q5
+def gaussconvolve2d_scipy(array, sigma):
+    gaussFilter = gauss2d(sigma)
+    return convolve2d(array, gaussFilter)
+
 def main():
     print("\nQuestion 1\n")
     for i in range(3,6):
@@ -73,7 +80,30 @@ def main():
 
     print("\nQuestion 4\n")
     
-
+    im = Image.open('dog.jpg').convert('L')
+    imArray = np.asarray(im, dtype=np.float32)
+    
+    q4Start = time.time()
+    im2 = Image.fromarray(gaussconvolve2d_manual(imArray,3))
+    q4Time = time.time() - q4Start
+    im.show()
+    im2.show()
+    raw_input("press any key to continue...")
+    
+    print("\nQuestion 5\n")
+    q5Start = time.time()
+    im3 = Image.fromarray(gaussconvolve2d_scipy(imArray,3))
+    q5Time = time.time() - q5Start
+    im.show()
+    im3.show()
+    # raw_input("press any key to continue...")
+    # The reason why correlation and convolution are the same here
+    # is because correlation is the same as convolution with the matrix
+    # turned 180 degrees. As the gaussian kernel is rotationally invariant
+    # It makes no difference.
+    print("\nQuestion 6\n")
+    print "Manual convolve run time: " + str(q4Time)
+    print "Scipy convolve run time: " + str(q5Time)
 
 if __name__ == "__main__":
     main()
