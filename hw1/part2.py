@@ -33,6 +33,16 @@ def convolve2d_manual(array, filter):
     xLenArr, yLenArr = np.shape(array)
     xLenFilt, yLenFilt = np.shape(filter)
     array = np.pad(array,(xLenFilt/2,yLenFilt/2),'constant')
+    convolvedArray = np.zeros((xLenArr,yLenArr))
+    for i in range(0, xLenArr):
+        for j in range (0, yLenArr):
+            convolvedArray[i,j] = sum(np.multiply(filter, array[i:i+xLenFilt,j:j+yLenFilt]).flatten())
+    return convolvedArray
+
+def gaussconvolve2d_manual(array, sigma):
+    gaussFilter = gauss2d(sigma)
+    return convolve2d_manual(array, gaussFilter)
+
 def main():
     print("\nQuestion 1\n")
     for i in range(3,6):
@@ -60,6 +70,10 @@ def main():
         except AssertionError as error:
             print error
             continue
+
+    print("\nQuestion 4\n")
+    
+
 
 if __name__ == "__main__":
     main()
