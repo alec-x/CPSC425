@@ -55,7 +55,8 @@ print("\nQuestion 6\n")
 print "Manual convolve run time: " + str(q4Time)
 print "Scipy convolve run time: " + str(q5Time)
 
-print("\nQuestion 7\n")
+# Q7
+
 # As the gaussian filter is separable, it would be more efficient to
 # separate the filter into X and Y components and pass them separately through
 # the image. This is due to the number of multiplications scaling O(2k)

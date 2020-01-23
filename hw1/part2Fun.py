@@ -5,12 +5,16 @@ from scipy import signal
 import cv2
 
 # Q1
+
+# Returns a normalized box filter of nxn dimensions as a numpy array
 def boxfilter(n):
     assert (n % 2) != 0, "Dimension \"n\" must be odd"
     elementNum = 1.0 / n**2
     return np.ones((n,n))*elementNum
 
 # Q2
+
+# Returns the next largest odd integer, or n if n is odd.
 def roundOdd(n):
     assert n > 0, "input must be > 0"
     
@@ -21,6 +25,8 @@ def roundOdd(n):
     else:
         return int(np.ceil(n)) + 1
 
+# Returns a normalized 1D gaussian filter as a numpy array. The size of the
+# filter is determined by 6*sigma rounded to the next odd number
 def gauss1d(sigma):
     arrLen = roundOdd(sigma * 6)
     # Instantiate proper length 0-centered array
@@ -31,6 +37,9 @@ def gauss1d(sigma):
     return gaussNotNormal/sum(gaussNotNormal)
 
 # Q3
+
+# Returns a normalized 2D gaussian filter as a numpy array the size of the
+# filter is determined by 6*sigma rounded to the next odd number
 def gauss2d(sigma):
     # Gaussian is separable and rotationally invariant. Therefore can 
     # turn 2d by convolving the 1D gaussian filter with its transpose
@@ -40,6 +49,8 @@ def gauss2d(sigma):
     return convolution/sum(convolution.flatten())
 
 # Q4
+
+# Returns the convolution of an input array and its filter
 def convolve2d_manual(array, filter):
     # Unpadded length of array
     xLenArr, yLenArr = np.shape(array)
@@ -55,11 +66,15 @@ def convolve2d_manual(array, filter):
             convolvedArray[i,j] = sum(np.multiply(filter, array[i:i+xLenFilt,j:j+yLenFilt]).flatten())
     return convolvedArray
 
+# Returns the convolution of an input array and a gaussian filter
 def gaussconvolve2d_manual(array, sigma):
     gaussFilter = gauss2d(sigma)
     return convolve2d_manual(array, gaussFilter)
 
 # Q5
+
+# Returns the convolution of an input array and a gaussian filter
+# note that this, unlike the manual implementation, is not padded.
 def gaussconvolve2d_scipy(array, sigma):
     gaussFilter = gauss2d(sigma)
     return signal.convolve2d(array, gaussFilter)
