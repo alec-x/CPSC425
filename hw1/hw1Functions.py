@@ -74,8 +74,28 @@ def gaussconvolve2d_manual(array, sigma):
 # Part 2 Q5
 
 # Returns the convolution of an input array and a gaussian filter
-# note that this, unlike the manual implementation, is not padded.
 def gaussconvolve2d_scipy(array, sigma):
     gaussFilter = gauss2d(sigma)
-    return signal.convolve2d(array, gaussFilter)
+    return signal.convolve2d(array, gaussFilter,mode='same',boundary='fill')
 
+# Part 3 Q1
+# Applies gaussian filter to coloured 2D image and returns an array representation
+def gaussFilterColour(path, sigma):
+    im = Image.open(path)
+    arrImage = np.asarray(im, dtype=np.float32)
+    arrBlur = np.zeros_like(arrImage)
+    for i in range(0,3):
+        arrBlur[:,:,i] = gaussconvolve2d_scipy(arrImage[:,:,i],sigma)
+    return arrBlur
+
+# Part 3 Q3
+# Hybridizes the images based on gaussian filter using sigma provided
+# Returns an array representation with uint8 format
+def gaussHybridize(path1, path2, sigma):
+    arrHigh = np.asarray(Image.open(path1),dtype=np.float32) - gaussFilterColour(path1, sigma)
+    arrBlur = gaussFilterColour(path2, sigma)
+    arrHybrid = arrHigh + arrBlur
+    arrHybrid[arrHybrid > 255] = 255
+    arrHybrid[arrHybrid < 0] = 0
+    return np.uint8(arrHybrid)
+    
