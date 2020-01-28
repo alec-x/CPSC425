@@ -91,11 +91,12 @@ def gaussFilterColour(path, sigma):
 # Part 3 Q3
 # Hybridizes the images based on gaussian filter using sigma provided
 # Returns an array representation with uint8 format
-def gaussHybridize(path1, path2, sigma):
-    arrHigh = np.asarray(Image.open(path1),dtype=np.float32) - gaussFilterColour(path1, sigma)
-    arrBlur = gaussFilterColour(path2, sigma)
+def gaussHybridize(path1, path2, sigma1, sigma2):
+    arrHigh = np.asarray(Image.open(path1),dtype=np.float32) - gaussFilterColour(path1, sigma1)
+    arrBlur = gaussFilterColour(path2, sigma2)
     arrHybrid = arrHigh + arrBlur
     arrHybrid[arrHybrid > 255] = 255
     arrHybrid[arrHybrid < 0] = 0
     return np.uint8(arrHybrid)
-    
+
+# Part 4 Q1
