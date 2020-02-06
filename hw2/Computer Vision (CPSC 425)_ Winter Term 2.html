@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- saved from url=(0057)https://www.cs.ubc.ca/~lsigal/425_2019W2/Assignment2.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Computer Vision (CPSC 425): Winter Term 2</title>
+
+<meta name="author" content="Leonid Sigal / Original design by Andreas Viklund - http://andreasviklund.com">
+  <script src="./Computer Vision (CPSC 425)_ Winter Term 2_files/jquery-1.js.download"></script>
+  <link rel="stylesheet" href="./Computer Vision (CPSC 425)_ Winter Term 2_files/bootstrap-theme.css">
+  <link rel="stylesheet" href="./Computer Vision (CPSC 425)_ Winter Term 2_files/andreas09.css" type="text/css" media="screen">
+  <script src="./Computer Vision (CPSC 425)_ Winter Term 2_files/bootstrap.js.download"></script>
+  
+<link rel="stylesheet" type="text/css" href="./Computer Vision (CPSC 425)_ Winter Term 2_files/sunburst.css"></head>
+ 
+<body>
+<div id="container">
+
+<div id="sitename">
+<table width="100%">
+<tbody><tr><td>
+   <h1>Leonid Sigal</h1>
+   <h2>Associate Professor, University of British Columbia</h2>
+</td><td align="right">
+    <img src="./Computer Vision (CPSC 425)_ Winter Term 2_files/UBC_logo.png" height="60">
+    <img src="./Computer Vision (CPSC 425)_ Winter Term 2_files/Vector.png" height="60">
+    <img src="./Computer Vision (CPSC 425)_ Winter Term 2_files/BorealisAI_logo.png" height="60">    
+</td>
+</tr></tbody></table>
+</div>
+
+<div id="mainmenu">
+<ul>
+
+</ul>
+</div>
+ 
+<div id="wrap">
+
+<div id="leftside">
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+<h1>Menu</h1>
+<p>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/index.html">Home</a><span class="hide"> | </span>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/about.html">About</a><span class="hide"> | </span>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/about.html#biography">Biography</a><span class="hide"> | </span>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/about.html#cv">CV</a>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/people.html">Students and Collaborators</a><span class="hide"> | </span>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/research.html">Research</a><span class="hide"> | </span>
+<a class="nav active" href="https://www.cs.ubc.ca/~lsigal/teaching.html">Teaching</a><span class="hide"> | </span>
+<a class="nav sub active" href="https://www.cs.ubc.ca/~lsigal/teaching19_Term2.html">CPSC 425 <br> Winter 2, 2019</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching18_Term2.html">CPSC 425 <br> Winter 2, 2018</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching18.html">CPSC 532S <br> Winter 2, 2018</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching18_Term1.html">CPSC 425 <br> Winter 1, 2018</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching17.html">CPSC 532L <br> Winter 2, 2017</a>
+<a class="nav sub" href="http://www.cs.cmu.edu/~yaser/Fall2012_15869.html">CMU 15-869 <br> Fall 2012 </a>
+<a class="nav sub" href="https://docs.google.com/document/pub?id=1jGBn7zPDEaU33fJwi3YI_usWS-U6gpSSJotV_2gDrL0">CMU 16-824 <br> Spring 2012 </a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching08.html">CSCD18 Fall 2008</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching07.html">CSCD18 Fall 2007</a>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/publications_type.html">Publications</a><span class="hide"> | </span>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/download.html">Code and Data</a><span class="hide"> | </span>
+<!-- <a class="nav" href="personal.html">Personal</a><span class="hide"> | </span> -->
+</p>
+
+<h1>Contact</h1>
+Dep. of Computer Science <br>
+University of British Columbia <br>
+ICCS 119 <br>
+2366 Main Mall <br> 
+Vancouver, B.C. V6T 1Z4 <br>
+CANADA <br><br>
+<strong>Phone:</strong> 1-604-822-4368 <br>
+<strong>Email:</strong> lsigal at cs.ubc.ca  <br>
+</div>
+
+<div id="rightside">
+
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+
+
+        
+</div>
+
+<div id="content">
+
+  <div class="container">
+    <div class="page-header">
+    <br>
+    <center>
+    <h1>Assignment 2: Scaled Representations, Face Detection and Image Blending</h1>
+    </center>
+    </div> 
+  </div>
+
+    <p class="medium"> 
+    <strong>Due:</strong> At the end of the day  <strong>11:59pm</strong>, Tuesday, Februrary 11, 2020.
+    </p>
+
+    <p class="medium"> 
+    The purpose of this assignment is to implement and understand the use of normalized cross correlation for object detection in a scaled representations. As well as to experiment with other applications of scaled representations, such as image blending. 
+    </p>
+
+    <p class="medium"> 
+    Again, there are different ways to import libraries/modules into Python.  Styles and practices vary.  For consistency (and to make life easier for the markers) you are required to import modules for this assignment <b>exactly</b> as follows:
+    </p>
+    
+    <pre class="prettyprint lang-py prettyprinted" style=""><span class="pln">	    </span><code class="prettyprint lang-py"><span class="pln">
+        </span><span class="kwd">from</span><span class="pln"> PIL </span><span class="kwd">import</span><span class="pln"> </span><span class="typ">Image</span><span class="pun">,</span><span class="pln"> </span><span class="typ">ImageDraw</span><span class="pln">
+        </span><span class="kwd">import</span><span class="pln"> numpy </span><span class="kwd">as</span><span class="pln"> np
+        </span><span class="kwd">import</span><span class="pln"> math
+        </span><span class="kwd">from</span><span class="pln"> scipy </span><span class="kwd">import</span><span class="pln"> signal
+        </span><span class="kwd">import</span><span class="pln"> ncc
+        </span></code><span class="pln">
+    </span></pre>
+    <br>
+
+    <h2>The assignment </h2>
+
+
+    <h3> Part 1: Face Detection</h3>
+ 
+    <ol>
+
+    <li>
+    <p class="medium"> 
+    The zip file containing <tt>ncc.py</tt>, sample images and a face template is <a href="https://www.cs.ubc.ca/~lsigal/425_2019W2/hw2part1.zip">hw2part1.zip</a>. Download this file to your directory and unzip with the command
+    </p><pre class="prettyprint lang-py prettyprinted" style=""><span class="pln">        </span><code class="prettyprint lang-py"><span class="pln">
+        unzip hw2</span><span class="pun">.</span><span class="pln">zip
+        </span></code><span class="pln">
+    </span></pre>       
+    <p></p>
+
+    <p class="medium"> 
+    The face template we will use is in the file <a href="./Computer Vision (CPSC 425)_ Winter Term 2_files/face_detection_template.jpg"><tt>face_detection_template.jpg</tt></a> and is shown below. <br>
+    </p><table>
+        <tbody><tr>
+           <td align="center"> <img class="regular" src="./Computer Vision (CPSC 425)_ Winter Term 2_files/face_detection_template.jpg" height="50" alt="Face templatel"> </td>
+        </tr>
+    </tbody></table>    
+    <p></p>
+    </li>
+
+
+    <li> <code>(2 points)</code>
+    <p class="medium"> 
+    The first task is to build a scaled representation of the input image. Create a routine <tt>pyramid = MakeGaussianPyramid(image, scale, minsize)</tt> that creates a pyramid for an image.  It returns a list including the original PIL image followed by all the PIL of images of reduced size, using a scale factor of 0.75 from one level to the next.  The pyramid should stop when any further reduction in size will make a dimension of the image smaller than <tt>minsize</tt>. If <tt>image</tt> is a PIL image, you can use the Python function <tt>im.resize((int(x*scale),int(y*scale)), Image.BICUBIC)</tt> to reduce the image size at each step. Note: You should also filter the image with a Gussian whos sigma is 1/(2*scale) to avoid antialising artifacts. You can use the code from previous assignment to do this filtering or use <tt>scipy.ndimage.gaussian_filter</tt>.
+    </p>
+
+    </li><li> <code>(3 points)</code>
+    <p class="medium"> 
+    In order to check your pyramid, write a routine <tt>ShowGaussianPyramid(pyramid)</tt> that will join all the images in the pyramid into one horizontal image and display this result with <tt>imshow</tt>.
+    </p>
+
+    <p class="medium"> 
+    You can combine multiple images into a single image by first creating a blank image of the right size <tt>image = Image.new("L", (width, height))</tt> and then pasting existing images into it <tt>image.paste(im,(offset_x,offset_y))</tt>.  Since you will be handing in a PDF version of your pyramids, feel free to initialize unused space with white (rather than black). This will make it look cleaner in the PDF. Note that while for this part it is sufficent to deal with greyscale images, in Part 2 of the assignment will require you to deal with color images, so it maybe worwhile making sure that this function works for color images as well as greyscale. 
+    </p>
+
+    </li><li> <code>(10 points)</code>
+    <p class="medium"> 
+    <img class="right" src="./Computer Vision (CPSC 425)_ Winter Term 2_files/face_detection_result.jpg" height="250" alt="Judybats test image">
+    To match a template to a pyramid, write a function <tt>FindTemplate(pyramid, template, threshold)</tt> that will find and mark all locations in the pyramid at which the normalized cross correlation&nbsp;(NCC) of the template with the image is above the threshold.  The goal is to achieve results similar to those on the right, although they will differ depending on the threshold you choose. 
+    </p>
+
+    <p class="medium"> 
+    Since NCC is an expensive operation and since its cost depends heavily on the size of the template, you should use the minimum possible template size.  Try reducing the width to 15 pixels using imresize with bicubic interpolation. Define a constant for template width so that it is easy to experiment with other sizes.
+    </p>
+
+    <p class="medium"> 
+    As you saw in Assignment&nbsp;2, the Scipy Signal Processing toolbox has a function <tt>signal.correlate2d</tt>.  But, this is not normalized cross-correlation.  NCC needs to normalize its two inputs correctly: the template (once, since it doesn't change), and each window in the image at which the template is positioned (which, of course, changes with each position).  Normalization adjusts the template and each window to have zero mean and unit magnitude.
+    </p>
+
+    <p class="medium"> 
+    You can compute the NCC using the function <tt>normxcorr2D</tt> provided.  If <tt>image</tt> is a PIL image and <tt>template</tt> is the PIL template, then <tt>ncc.normxcorr2D(image, template)</tt> returns the array of cross-correlation coefficients, in the range -1.0 to 1.0.  The returned array is the same size as <tt>image</tt>. The function, <tt>normxcorr2D</tt>, makes use of <tt>signal.correlate2d</tt>.  It is not a particularly efficient implementation, but it is sufficient for our purposes.  ASIDE:&nbsp;For an efficient implementation of NCC, one would generally link to external (non-Python) libraries, like OpenCV.  For a general discussion of NCC implementation issues, see J.P. Lewis, <a href="http://scribblethink.org/Work/nvisionInterface/nip.html">Fast Normalized Cross-Correlation</a>.
+    </p>
+
+    <p class="medium"> 
+    For each pixel at which the normalized correlation result is above the threshold, draw lines (forming a rectangle) to mark the boundary of the template at that location. All lines should be shown overlayed on the original image (the first image in the pyramid), which means that template matches at other scales will need to be adjusted by the right scale factor (i.e.,&nbsp;by the right power of 0.75).
+    </p>
+
+    <p class="medium"> 
+    To draw lines in a PIL image, use the routine <tt>draw.line</tt> in the <tt>ImageDraw</tt> module.  For example, if <tt>im</tt> is a PIL image,
+    </p><pre class="prettyprint lang-py prettyprinted" style=""><span class="pln">        </span><code class="prettyprint lang-py"><span class="pln">
+        draw </span><span class="pun">=</span><span class="pln"> </span><span class="typ">ImageDraw</span><span class="pun">.</span><span class="typ">Draw</span><span class="pun">(</span><span class="pln">im</span><span class="pun">)</span><span class="pln">
+        draw</span><span class="pun">.</span><span class="pln">line</span><span class="pun">((</span><span class="pln">x1</span><span class="pun">,</span><span class="pln">y1</span><span class="pun">,</span><span class="pln">x2</span><span class="pun">,</span><span class="pln">y2</span><span class="pun">),</span><span class="pln">fill</span><span class="pun">=</span><span class="str">"red"</span><span class="pun">,</span><span class="pln">width</span><span class="pun">=</span><span class="lit">2</span><span class="pun">)</span><span class="pln">
+        </span><span class="kwd">del</span><span class="pln"> draw
+        </span></code><span class="pln">
+    </span></pre>
+    draws a red line of width 2 in <tt>im</tt> from <tt>(x1,y1)</tt> to <tt>(x2,y2)</tt>. Of course, if you really want the line to be red, <tt>im</tt> must support colour. If necessary, you can achieve this with <tt>im = im.convert('RGB')</tt>.
+    <p></p>
+
+    <p class="medium"> 
+    Since the face template was extracted from one of the faces in the judybats image, it will have a strong correlation with that location, which should help to make debugging the location output easier.
+    </p>
+
+    </li><li> <code>(5 points)</code>
+    <p class="medium"> 
+    Once your code is working, adjust the threshold to achieve close to an equal error rate on the six given images (<tt>judybats</tt>, <tt>students</tt>, <tt>tree</tt>, <tt>family</tt>, <tt>fans</tt>, <tt>sports</tt>) considered together.  An equal error rate is where the number of non-faces seen as faces (false positives) equals the number of missed faces (false negatives).  You can do this by just trying different thresholds and counting the number of non-faces seen as faces and the number of missed faces.
+    </p>
+
+    </li><li> <code>(5 points)</code>
+    <p class="medium"> 
+    For question 5, what is the recall rate of the program on each image? The recall rate is defined here: <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a>. Explain why the NCC method has a very low recall rate on some images.
+    </p>
+
+    </li></ol>
+
+     <h3> Part 2: Image Blending</h3>
+
+    <p class="medium"> 
+    In this part of the assignment you will implement and experiment with pyramid-based image blending. 
+    Pyramid-based image blending was introduced by Burt &amp; Adelson in their <a href="https://www.cs.toronto.edu/~mangas/teaching/320/assignments/a3/spline83.pdf">paper</a> in 
+    1983 and is an effective way to seamlessly compose images. You may want to read Section 3.2 of the paper that describes the original algorithm. 
+    This technique is also often used to build image mosaics or to stich image panoramas (which will come handy for us later). Pyramid image blending works by blending the 
+    Laplacian pyramids of two input photos using a Gaussian pyramid mask. 
+    </p>
+    
+    <ol>
+
+    <li>
+    <p class="medium"> 
+    The zip file containing pairs of images for blending and corresponding masks is <a href="https://www.cs.ubc.ca/~lsigal/425_2019W2/hw2part2.zip">hw2part.zip</a>. All data is curtecy of <a href="https://www.cs.toronto.edu/~mangas/">Fernando Flores-Mangas</a>. Download this file to your directory and unzip with the command:
+    </p><pre class="prettyprint lang-py prettyprinted" style=""><span class="pln">        </span><code class="prettyprint lang-py"><span class="pln">
+        unzip hw2part2</span><span class="pun">.</span><span class="pln">zip
+        </span></code><span class="pln">
+    </span></pre>       
+    <p></p>
+    </li>
+    
+    <li>
+    <p class="medium"> <code>(3 points)</code>
+    The first task is to build a Laplacian scaled representation of the two input PIL images loaded from <a href="./Computer Vision (CPSC 425)_ Winter Term 2_files/orchid.jpg">orchard.jpg</a> and <a href="./Computer Vision (CPSC 425)_ Winter Term 2_files/violet.jpg">violet.jpg</a> shown below. Note that these are taken with differet focal length setting on the camera, so while the scene is identical only one of the plants is in focus (either the one in front or the one in the back). 
+    </p>
+    
+    <table>
+        <tbody><tr>
+           <td align="center"> <img class="regular" src="./Computer Vision (CPSC 425)_ Winter Term 2_files/orchid.jpg" height="250"> </td>
+           <td align="center"> <img class="regular" src="./Computer Vision (CPSC 425)_ Winter Term 2_files/violet.jpg" height="250"> </td>
+        </tr>
+    </tbody></table>    
+    
+    <p class="medium"> 
+    Create a routine <tt>pyramid = MakeLaplacianPyramid(image, scale, minsize)</tt> that creates a Laplacian pyramid for a PIL image. It should return a list of ``images'' including the Laplacian at a resolution of the original PIL image, followed by all the Laplacian ``images'' of reduced size, using a scale factor of 0.75 from one level to the next. The pyramid should stop when any further reduction in size will make a dimension of the image smaller than <tt>minsize</tt>. The easiest way to construct a Laplacian pyramid is by first constructing a Gaussian one (re-use <tt>MakeGaussianPyramid</tt> function from Part 1 ensuring that it works for RGB image inputs) and then taking differences of Gaussian pyramid levels and their smoothed variants. Note: The highest level (lowest resolution) of both Gaussian and Laplacian pyramid is the same and both pyramids should have the same numeber of levels.
+    </p>
+    </li>
+    
+    <li>
+    <p class="medium">  <code>(2 points)</code>
+    In order to check your pyramid, write a routine <tt>ShowLaplacianPyramid(pyramid)</tt> that will join all the images in the pyramid into one image and display this result with imshow. The arrangement of layers and most of the code should reamble Gaussian pyramid in Part 1; unlike Part 1, however, you will need to deal with RGB images. Further, you should be careful when displaying Laplacyan pyramids as all but the last level will contain values in the range -128 to 128 if you are working with image pixels in 0 to 255 range (or between -0.5 and 0.5 if you normalized the range to 0 to 1). Hence you will need offset (and possibly scale) the levels before displaying, similar to what you did for a high-pass filtered images in Assignment 1. Since you will be handing in a PDF version of your pyramids, feel free to initialize unused space with white (rather than black). This will make it look cleaner in the PDF. Visualize Laplacian pyramid for both <a href="./Computer Vision (CPSC 425)_ Winter Term 2_files/orchid.jpg">orchard.jpg</a> and <a href="./Computer Vision (CPSC 425)_ Winter Term 2_files/violet.jpg">violet.jpg</a> images.
+    </p>
+    </li>    
+    
+    <li>
+    <p class="medium"> <code>(5 points)</code>
+    Buld a function that takes a Laplacian pyramid and reconstructs Gaussian pyramid of that image from a Laplacian one, <tt>gPyramid = ReconstructGaussianFromLaplacianPyramid(lPyramid)</tt>. The procedure is recursive. You start from the highest level of the Laplacian pyramid (smallest resolution) upsample it to match the resolution of the next level and add that level to the upsampled version to obtain a corresponding Gaussian level. You can use <tt>im.resize((width,height), Image.BICUBIC)</tt> to carry out upsampling. Note: The last level of the Laplacian pyramid is a small resolution image, same as in Gaussian pyramid, so that level can be just coppied over. Use <tt>ShowGaussianPyramid(pyramid)</tt> function from Part 1 to visualize the two reconstructed Gaussian pyramids to  ensure the  function is working. 
+    </p>
+    </li>        
+    
+    <li>
+    <p class="medium">  <code>(2 points)</code>
+    Now construct a Gaussian pyramid of the <a href="https://www.cs.ubc.ca/~lsigal/425_2019W2/images/orchid_mask.bmp">orchard_mask.bmp</a> image using <tt>MakeGaussianPyramid</tt> function from Part 1. Visualize the pyramid using <tt>ShowGaussianPyramid(pyramid)</tt> function from Part 1. 
+    </p>
+    </li>
+    
+    <li>
+    <p class="medium">  <code>(5 points)</code>      
+    In the final step you need to compose the two Laplacian pyramids, level by level, using Gaussian pyramid levels as masks. You can use  <tt>PIL.Image.composite(image1, image2, mask)</tt> to do this. You should end up with a Laplacian pyramid that contains the output of the blend. Now use the  <tt>ReconstructGaussianFromLaplacianPyramid</tt> function to construct an output Gaussian pyramid and display the highest resolution level, which should correspond exactly to the size of the two input images. Your result should look something like this:
+     </p><table>
+        <tbody><tr>
+           <td align="center"> <img class="regular" src="./Computer Vision (CPSC 425)_ Winter Term 2_files/orchid_violet.tif" height="250"> </td>
+        </tr>
+    </tbody></table>           
+    <p></p>
+    </li>
+    
+    <li>
+    <p class="medium">  <code>(3 points)</code>    
+    Experimnt with additional pairs provided in the zip file. This includes blue_cup.jpg and green_cup.jpg, as well as apple.jpg and tomato.jpg. Feel free to create your own blends as well. 
+    </p>
+    </li>    
+    </ol>
+
+    <h2>Deliverables</h2>
+
+    <p class="medium"> 
+    You will hand in your assignment ellectronically through Canvas. You should hand in two files, a file containig your code (i.e.,copies of your functions in a single &nbsp;<tt>*.py</tt> file). These must have sufficient comments for others to easily use and understand the code. You will lose marks for insufficient or unclear comments or poorly designed code. In addition, hand in a single PDF document showing: </p>
+    
+    <ul>
+    <li>Part 1</li> 
+    <ul>
+        <li>scripts (i.e.,&nbsp;records of your interactions with the Python shell) showing the specified tests of your functions</li>
+        <li>an image showing the result of <tt>ShowGaussianPryramid</tt> (for one of the test images)</li>
+        <li>your final selected threshold</li>
+        <li>images with the face detections for your final selected threshold for all six images</li>
+    </ul>
+    <li>Part 2</li>
+    <ul>
+        <li>output of the <tt>ShowLaplacianPyramid</tt> for orchard.jpg</li>
+        <li>output of the <tt>ShowLaplacianPyramid</tt> for violet.jpg</li>
+        <li>output of the Gaussian pyramid reconstruction obtained using <tt>ShowGaussianPyramid</tt> after calling <tt>ReconstructGaussianFromLaplacianPyramid</tt> on orchard.jpg</li>
+        <li>output of the Gaussian pyramid reconstruction obtained using <tt>ShowGaussianPyramid</tt> after calling <tt>ReconstructGaussianFromLaplacianPyramid</tt> on violet.jpg</li>
+        <li>output of the <tt>ShowGussianPyramid</tt> for the mask</li>
+        <li>image showing final blended output for <b>orchard-violet</b> as well as <b>blue_cup-green_cup</b> and <b>apple-tomato pairs</b></li>
+    </ul>    
+    </ul>
+    
+    <p>The PDF file has to be organized and easily readible / accessible.</p>
+
+</div>
+
+<div class="clearingdiv">&nbsp;</div>
+</div>
+</div>
+<div id="footer">© 2018 Leonid Sigal | Design by <a href="http://andreasviklund.com/">Andreas Viklund</a></div>
+
+
+
+
+</body></html>
