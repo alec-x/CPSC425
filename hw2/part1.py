@@ -1,33 +1,48 @@
 from PIL import Image, ImageDraw
 import numpy as np
 import math
-from scipy import signal
+from scipy import signal, ndimage
 import ncc
 
-# Assuming image as PIL Image
+# Part 1
+
+# Assuming image as array
+
+# Question 2
 def MakeGaussianPyramid(image, scale, minsize):
-    xLen, yLen = image.size
     sig = 1.0/(2*scale)
     gaussianPyramid = []
-    while (min(xLen, yLen >= minsize):
-        image = scipy.ndimage.gaussian_filter(image, sigma=sig)
+    # make sure dtype is correct
+    image = np.asarray(image, dtype=np.float32)
+    gaussianPyramid.append(image)
+    while (min(image.shape) > minsize):
+        yLen, xLen = image.shape
+        image = ndimage.gaussian_filter(image, sigma=sig)
+        image = Image.fromarray(image)
+        image = image.resize((int(xLen*scale),int(yLen*scale)), Image.BICUBIC)
+        image = np.asarray(image, dtype=np.float32)
         gaussianPyramid.append(image)
-        image = image.resize((int(x*scale),int(y*scale)), Image.BICUBIC)
-        xLen, yLen = image.size
+        
     return gaussianPyramid
 
+# Question 3
 def ShowGaussianPyramid(pyramid):
     
-    xLenTot = int(float(n)*XLen/(1-1/2^n)) # Using solution to geometric series 
-    yLenTot = int(float(n)*YLen/(1-1/2^n))
-    xOffset = 0
-    yOffset = 0
-    pyrImg = Image.new("L", (xLenTot, yLenTot))
-
+    yLen, xLen = pyramid[0].shape
+    xLenTot = 0
     for im in pyramid:
-        xLen, yLen = im.size
-        xOffset = xOffset + math.ceil(xLen/2)
-        yOffset = yOffset + math.ceil(yLen/2)
-        pyrImg.paste(im,(xOffset, yOffset))
+        xLenTot = xLenTot + im.shape[1]
+    
+    pyrImg = Image.new("RGB", (xLenTot, yLen), color=(255,255,255))
+
+    Offset = 0
+    for im in pyramid:
+        pyrImg.paste(Image.fromarray(im),(Offset, 0))
+        Offset = Offset + im.shape[1]
+        
 
     pyrImg.show()
+
+# Question 4
+def FindTemplate(pyramid, template, threshold):
+    pass
