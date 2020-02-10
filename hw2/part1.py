@@ -44,5 +44,23 @@ def ShowGaussianPyramid(pyramid):
     pyrImg.show()
 
 # Question 4
-def FindTemplate(pyramid, template, threshold):
-    pass
+
+# Assuming pyramid, template as array. Casting threshold to double and templatewidth to int
+def FindTemplate(pyramid, template, threshold, templateWidth):
+    # y = dims[0], x = dims[1]. Find dimensions to scale to.
+    dims = list(template.shape)
+    scaleFactor = max(dims) / templateWidth
+    yTempLen, xTempLen = np.multiply(dims, 1.0/scaleFactor)
+    # Apply gaussian before applying scaling. Turn back to PIL image for NCC
+    template = ndimage.gaussian_filter(template, sigma=(1.0/2*scaleFactor))
+    template = Image.fromarray(template.resize((int(xTempLen),int(yTempLen)), Image.BICUBIC))
+
+    # Figure out scale factor of pyramid, assuming pyramid has at least 2 elements.
+    pyrScale = pyramid[0].shape[0]/pyramid[1].shape[0]
+    # Array of tuples to hold highest scoring pixels
+    POI = []
+    for im in pyramid:
+        im = Image.fromarray(im)
+        # Points of interest in image scaled to original size 
+        imPOI = np.argwhere(ncc.normxcorr2D(im, template) > threshold)
+        POI.append()
