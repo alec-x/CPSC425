@@ -116,4 +116,4 @@ def FindTemplate(pyramid, template, threshold, templateWidth):
     
     im.show()
 
-    return scaleList
+    return
