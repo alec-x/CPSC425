@@ -12,17 +12,23 @@ import ncc
 def MakeGaussianPyramid(image, scale, minsize):
     sig = 1.0/(2*scale)
     gaussianPyramid = []
+
     # make dtype consistent for consistent output list
     image = np.asarray(image, dtype=np.uint8)
     gaussianPyramid.append(image)
+    
     # Check for if pyramid has stopped shrinking
-    prevYLen = image.shape[0]
+    # Can initiate to 0 because we use equality to check if shrinking
+    prevYLen = 0
 
     # Ensure we only retrieve x, y dims if RGB
     while (min(image.shape[0:2]) > minsize):
         yLen, xLen = image.shape[0:2]
+
+        # If image isn't shrinking, terminate loop
         if(yLen == prevYLen):
             break
+        
         # Gauss filter before resize. If RGB do by channel
         if (len(image.shape) == 2):
             image = ndimage.gaussian_filter(image.astype('float'), sigma=sig)
@@ -64,22 +70,50 @@ def ShowGaussianPyramid(pyramid):
 
 # Question 4
 
+import matplotlib.pyplot as plt
 # Assuming pyramid, template as array. Casting threshold to double and templatewidth to int
 def FindTemplate(pyramid, template, threshold, templateWidth):
     # y = dims[0], x = dims[1]. Find dimensions to scale to.
+    # Even if RGB, dims[2] == 3, which should be smaller than x or y
     dims = list(template.shape)
-    scaleFactor = max(dims) / templateWidth
-    yTempLen, xTempLen = np.multiply(dims, 1.0/scaleFactor)
+    scaleFactor = float(max(dims)) / templateWidth
+    yTempLen, xTempLen = np.multiply(dims, 1.0/scaleFactor)[0:2]
+
     # Apply gaussian before applying scaling. Turn back to PIL image for NCC
     template = ndimage.gaussian_filter(template.astype('float'), sigma=(1.0/2*scaleFactor))
-    template = Image.fromarray(template.resize((int(xTempLen),int(yTempLen)), Image.BICUBIC))
+    template = Image.fromarray(template.astype(np.uint8))
+    template = template.resize((int(xTempLen),int(yTempLen)), Image.BICUBIC)
 
     # Figure out scale factor of pyramid, assuming pyramid has at least 2 elements.
-    pyrScale = pyramid[0].shape[0]/pyramid[1].shape[0]
-    # Array of tuples to hold highest scoring pixels
-    POI = []
+    pyrScale = float(pyramid[0].shape[0])/pyramid[1].shape[0]
+    currScale = 1
+    # Array of x,y coords to hold highest scoring pixels
+    pointsOfInterest = []
+    scaleList = []
+
     for im in pyramid:
         im = Image.fromarray(im)
         # Points of interest in image scaled to original size 
         imPOI = np.argwhere(ncc.normxcorr2D(im, template) > threshold)
-        POI.append()
+        imPOI = np.round(np.multiply(imPOI, currScale)).astype(int)
+
+        # Append coordinates to coordinate list
+        for coords in imPOI:
+            pointsOfInterest.append(coords)
+            scaleList.append([currScale*xTempLen, currScale*yTempLen])            
+            
+        # Modify scale
+        currScale = pyrScale*currScale
+
+    # Draw rectangles based on interesting points found
+    im = Image.fromarray(pyramid[0]).convert('RGB')
+    imDraw = ImageDraw.Draw(im)
+    for i in range(0,len(pointsOfInterest)):
+        yVal, xVal = pointsOfInterest[i]
+        xLen, yLen = scaleList[i]
+        xy = [xVal - xLen/2, yVal - yLen/2, xVal + xLen/2, yVal + yLen/2]
+        imDraw.rectangle(xy,outline='red')
+    
+    im.show()
+
+    return scaleList
