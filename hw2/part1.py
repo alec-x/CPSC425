@@ -15,10 +15,14 @@ def MakeGaussianPyramid(image, scale, minsize):
     # make dtype consistent for consistent output list
     image = np.asarray(image, dtype=np.uint8)
     gaussianPyramid.append(image)
+    # Check for if pyramid has stopped shrinking
+    prevYLen = image.shape[0]
+
     # Ensure we only retrieve x, y dims if RGB
     while (min(image.shape[0:2]) > minsize):
         yLen, xLen = image.shape[0:2]
-
+        if(yLen == prevYLen):
+            break
         # Gauss filter before resize. If RGB do by channel
         if (len(image.shape) == 2):
             image = ndimage.gaussian_filter(image.astype('float'), sigma=sig)
@@ -33,6 +37,7 @@ def MakeGaussianPyramid(image, scale, minsize):
         image = np.asarray(image, dtype=np.float32)
         gaussianPyramid.append(image)
         
+        prevYLen = yLen
     return gaussianPyramid
 
 # Question 3
