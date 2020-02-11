@@ -1,4 +1,4 @@
-from part1 import *
+from hw2functions import *
 from PIL import Image
 import numpy as np
 
@@ -40,13 +40,3 @@ for i in range(0, len(Arrs)):
     pyramids.append(MakeGaussianPyramid(Arrs[i], 0.75, 20))
     FindTemplate(pyramids[i], template, 0.69, 15)
 
-# Question 6
-# judybats: 4/5 = 80%
-# students: 19/27 = 70% 
-# tree: 0/0 = 100%?
-# family: 0/3 = 0%
-# fans: 0/3 = 0%
-# sports: 0/1 = 0%
-# As the template describes a white, young-adult, male at a frontal angle, with overhead lighting
-# it seems that the algorithm is best at detecting that. For most of the
-# unrecognized faces, the face was at a different angle, different lighting, female, or different ethnicity

@@ -6,9 +6,8 @@ import ncc
 
 # Part 1
 
-# Assuming image as array
-
 # Question 2
+# Assuming image as array
 def MakeGaussianPyramid(image, scale, minsize):
     sig = 1.0/(2*scale)
     gaussianPyramid = []
@@ -47,6 +46,7 @@ def MakeGaussianPyramid(image, scale, minsize):
     return gaussianPyramid
 
 # Question 3
+# Assume pyramid contains numpy arrays
 def ShowGaussianPyramid(pyramid):
     # Only get the y and x dims in case input is RGB
     yLen, xLen = pyramid[0].shape[0:2]
@@ -70,7 +70,6 @@ def ShowGaussianPyramid(pyramid):
     # pyrImg.convert('RGB').save('.\\results\\p1q3.png','PNG')
 # Question 4
 
-import matplotlib.pyplot as plt
 # Assuming pyramid, template as array. Casting threshold to double and templatewidth to int
 def FindTemplate(pyramid, template, threshold, templateWidth):
     # y = dims[0], x = dims[1]. Find dimensions to scale to.
@@ -115,5 +114,11 @@ def FindTemplate(pyramid, template, threshold, templateWidth):
         imDraw.rectangle(xy,outline='red')
     
     im.show()
-    # im.convert('RGB').save('.\\results\\p1q4.png','PNG')
+
+    return
+
+# Part 2
+
+# Question 2
+def MakeLaplacianPyramid(image, scale, minsize):
     return
