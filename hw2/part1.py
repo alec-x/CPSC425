@@ -67,7 +67,7 @@ def ShowGaussianPyramid(pyramid):
         
 
     pyrImg.show()
-
+    # pyrImg.convert('RGB').save('.\\results\\p1q3.png','PNG')
 # Question 4
 
 import matplotlib.pyplot as plt
@@ -115,5 +115,5 @@ def FindTemplate(pyramid, template, threshold, templateWidth):
         imDraw.rectangle(xy,outline='red')
     
     im.show()
-
+    # im.convert('RGB').save('.\\results\\p1q4.png','PNG')
     return

@@ -3,7 +3,7 @@ from PIL import Image
 import numpy as np
 
 # Part 1
-'''
+
 # Question 2 & 3
 im = Image.open("dog.jpg").convert('RGB')
 #im = Image.open("hw2part1//family.jpg").convert('L')
@@ -21,7 +21,7 @@ judyBatsArr = np.asarray(judyBatsIm, dtype=np.float32)
 pyramid = MakeGaussianPyramid(judyBatsArr, 0.75, 20)
 
 FindTemplate(pyramid, template, 0.76, 15)
-'''
+
 # Question 5
 # Using 0.70 as the threshold, we get 15 missed faces and 3 not faces
 # Using 0.69 as the threshold, we get 14 missed faces and 11 not faces
