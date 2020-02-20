@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!-- saved from url=(0057)https://www.cs.ubc.ca/~lsigal/425_2019W2/Assignment3.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><script type="text/javascript">window["_gaUserPrefs"] = { ioo : function() { return true; } }</script><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Computer Vision (CPSC 425): Winter Term 2</title>
+
+<meta name="author" content="Leonid Sigal / Original design by Andreas Viklund - http://andreasviklund.com">
+  <script src="./Computer Vision (CPSC 425)_ Winter Term 2_files/jquery-1.js.download"></script>
+  <link rel="stylesheet" href="./Computer Vision (CPSC 425)_ Winter Term 2_files/bootstrap-theme.css">
+  <link rel="stylesheet" href="./Computer Vision (CPSC 425)_ Winter Term 2_files/andreas09.css" type="text/css" media="screen">
+  <script src="./Computer Vision (CPSC 425)_ Winter Term 2_files/bootstrap.js.download"></script>
+  
+<link rel="stylesheet" type="text/css" href="./Computer Vision (CPSC 425)_ Winter Term 2_files/sunburst.css"></head>
+ 
+<body>
+<div id="container">
+
+<div id="sitename">
+<table width="100%">
+<tbody><tr><td>
+   <h1>Leonid Sigal</h1>
+   <h2>Associate Professor, University of British Columbia</h2>
+</td><td align="right">
+    <img src="./Computer Vision (CPSC 425)_ Winter Term 2_files/UBC_logo.png" height="60">
+    <img src="./Computer Vision (CPSC 425)_ Winter Term 2_files/Vector.png" height="60">
+    <img src="./Computer Vision (CPSC 425)_ Winter Term 2_files/BorealisAI_logo.png" height="60">    
+</td>
+</tr></tbody></table>
+</div>
+
+<div id="mainmenu">
+<ul>
+
+</ul>
+</div>
+ 
+<div id="wrap">
+
+<div id="leftside">
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+<h1>Menu</h1>
+<p>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/index.html">Home</a><span class="hide"> | </span>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/about.html">About</a><span class="hide"> | </span>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/about.html#biography">Biography</a><span class="hide"> | </span>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/about.html#cv">CV</a>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/people.html">Students and Collaborators</a><span class="hide"> | </span>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/research.html">Research</a><span class="hide"> | </span>
+<a class="nav active" href="https://www.cs.ubc.ca/~lsigal/teaching.html">Teaching</a><span class="hide"> | </span>
+<a class="nav sub active" href="https://www.cs.ubc.ca/~lsigal/teaching19_Term2.html">CPSC 425 <br> Winter 2, 2019</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching18_Term2.html">CPSC 425 <br> Winter 2, 2018</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching18.html">CPSC 532S <br> Winter 2, 2018</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching18_Term1.html">CPSC 425 <br> Winter 1, 2018</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching17.html">CPSC 532L <br> Winter 2, 2017</a>
+<a class="nav sub" href="http://www.cs.cmu.edu/~yaser/Fall2012_15869.html">CMU 15-869 <br> Fall 2012 </a>
+<a class="nav sub" href="https://docs.google.com/document/pub?id=1jGBn7zPDEaU33fJwi3YI_usWS-U6gpSSJotV_2gDrL0">CMU 16-824 <br> Spring 2012 </a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching08.html">CSCD18 Fall 2008</a>
+<a class="nav sub" href="https://www.cs.ubc.ca/~lsigal/teaching07.html">CSCD18 Fall 2007</a>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/publications_type.html">Publications</a><span class="hide"> | </span>
+<a class="nav" href="https://www.cs.ubc.ca/~lsigal/download.html">Code and Data</a><span class="hide"> | </span>
+<!-- <a class="nav" href="personal.html">Personal</a><span class="hide"> | </span> -->
+</p>
+
+<h1>Contact</h1>
+Dep. of Computer Science <br>
+University of British Columbia <br>
+ICCS 119 <br>
+2366 Main Mall <br> 
+Vancouver, B.C. V6T 1Z4 <br>
+CANADA <br><br>
+<strong>Phone:</strong> 1-604-822-4368 <br>
+<strong>Email:</strong> lsigal at cs.ubc.ca  <br>
+</div>
+
+<div id="rightside">
+
+&nbsp; <br>
+&nbsp; <br>
+&nbsp; <br>
+
+
+        
+</div>
+
+<div id="content">
+
+  <div class="container">
+    <div class="page-header">
+    <br>
+    <center>
+    <h1>Assignment 3: Texture Synthesis</h1>
+    </center>
+    </div> 
+  </div>
+
+    <p class="medium"> 
+    <strong>Due:</strong> At the end of the day  <strong>11:59pm</strong>, Tuesday, March 3, 2020.
+    </p>
+
+    <p class="medium"> 
+    The purpose of this assignment is to implement and understand the texture synthesis approach of Efros and Leung.
+    </p>
+
+    <h2>The assignment </h2>
+
+    <ol>
+
+    <li>
+    <p class="medium"> 
+    First, you should make sure you understand the approach of Efros and Leung from the course notes and textbook.  You should also read the original paper, <a href="https://www.cs.ubc.ca/~lsigal/425_2019W2/efrosLeung99.pdf"> “Texture Synthesis by Non-parametric Sampling,” (PDF)</a> published in 1999. You also may wish to visit Efros’ <a href="http://graphics.cs.cmu.edu/people/efros/research/EfrosLeung.html"> web site</a> that lists more recent research on this topic.</p></li><p></p>
+    <p></p>
+    
+    
+    <li> 
+    <p class="medium"> 
+    To simplify your task of implementing this method we have prepared some Python code that does the more difficult portions, so that you only have to fill in some of the basic matching routines.  This code and the sample images are available in a zip file, <a href="https://www.cs.ubc.ca/~lsigal/425_2019W2/hw3.zip">hw3.zip</a>. You should download this file to your directory and unzip it with the command
+    </p>
+
+    <pre class="prettyprint lang-py prettyprinted" style=""><span class="pln">	    </span><code class="prettyprint lang-py"><span class="pln">
+        unzip hw3</span><span class="pun">.</span><span class="pln">zip
+        </span></code><span class="pln">
+    </span></pre>
+
+    </li><li>
+    <p class="medium"> 
+    The <tt>assign</tt> directory contains a sample image of a donkey in the file <a href="./Computer Vision (CPSC 425)_ Winter Term 2_files/donkey.jpg"><tt>donkey.jpg</tt></a>. There is also an image showing the region to be filled (shown in black) and the sample texture region (shown as a white rectangle) in the file <a href="./Computer Vision (CPSC 425)_ Winter Term 2_files/donkey2.jpg"><tt>donkey2.jpg</tt></a>.
+        </p><table align="center">
+        <tbody><tr>
+           <td align="center"> <img class="none" src="./Computer Vision (CPSC 425)_ Winter Term 2_files/donkey.jpg" height="150" alt="Donkey">  </td>
+           <td align="center"> <img class="none" src="./Computer Vision (CPSC 425)_ Winter Term 2_files/donkey2.jpg" height="150" alt="Donkey2">  </td>
+        </tr>
+        <tr>
+           <td align="center"> Original image </td>
+           <td align="center"> Region to be texture filled</td>
+        </tr>
+        </tbody></table>     
+    <p></p>
+
+    <p class="medium"> 
+    You can try running the provided skeleton program in Python by typing
+    </p>
+    
+    <pre class="prettyprint lang-py prettyprinted" width="230" style=""><span class="pln">	    </span><code class="prettyprint lang-py" width="230"><span class="pln">
+	    python </span><span class="typ">Holefill</span><span class="pun">.</span><span class="pln">py
+	    </span></code><span class="pln">
+	</span></pre>
+    
+    <p class="medium"> 
+    at the command prompt. (This runs the script file <tt>Holefill.py</tt>).  The script will pop up two figures: one containing the orginal image and the other showing the region to be filled and the texture region.  You will be asked, <tt>Are you happy with this choice of fillRegion and textureIm? </tt> Type <tt>Yes </tt> to proceeed.  Finally, the script will pop up a figure of the image with the texture filled in. As this skeleton program is missing some critical routines, the texture will initially be filled in as all black.
+    </p>
+    </li>
+
+    <li> <code>(8 points)</code>
+    <p class="medium"> 
+    You need to write a function <tt>ComputeSSD</tt> that computes the sum squared difference (SSD) between an image patch and the texture image, for each possible location of the patch within the texture image.  It must ignore empty pixels that have a value of 1 in the given mask image. Skeleton code for this function is provided in <tt>Holefill.py</tt>.
+    </p>
+
+    <p class="medium"> 
+    HINTS: The image patch is called <tt>TODOPatch</tt>, and it is a square patch of size <tt>[2 * patchL + 1, 2 * patchL + 1, 3]</tt>.  Note that the final dimension of 3 means that there are 3 colour values for each pixel. The texture image, <tt>textureIm</tt>, is of size <tt>[texImRows, texImCols, 3]</tt>. There is also a mask (an image of 1s and 0s) that specifies which elements in <tt>TODOPatch </tt> are empty and waiting to be filled in.  The mask is called <tt>TODOMask </tt> and it contains a 1 for each empty pixel and a 0 for each pixel that has a useful value.  Its first 2 dimensions are the same as <tt>TODOPatch</tt>, but it does not have the third dimension.  You must ignore the empty pixels when computing the result.  Note that the result, <tt>ssdIm</tt>, will have size <tt>[texImRows - 2 * patchL, texImCols - 2 * patchL] </tt> because it is only defined where the patch completely overlaps the texture. Further note that, as given in <tt>Holefill.py</tt>, the <tt>TODOPatch</tt> and <tt>textureIm</tt> arguments to <tt>ComputeSSD</tt> have data type <tt>unit8</tt>.  This is not a suitable data type for computing the required SSD.  A simple Python trick to coerce a number to floating point is to multiply it by <tt>1.0</tt>.  Do this, in <tt>ComputeSSD</tt>, as needed.
+    </p>
+    </li>
+
+    <li> <code>(6 points)</code>
+    <p class="medium"> 
+    The next section of <tt>Holefill.py </tt> takes the SSD image created above and chooses randomly amongst the best matching patches to decide which patch to paste into the texture image at that point. Next you need to write a functon <tt>CopyPatch </tt> which copies this selected patch into the final image.  Remember again that you should only copy pixel values into the hole section of the image. Existing pixel values should not be overwritten. Skeleton code for <tt>CopyPatch </tt> is provided in <tt>Holefill.py</tt>, along with comments explaining the arguments.
+    </p>
+
+    <p class="medium"> 
+    Note that this technique of copying a whole patch is much faster than copying just the center pixel as suggested in the original Efros and Leung paper.  However, the results are not quite as good. We are also ignoring the use of a Gaussian weighted window as described in their paper.
+    </p>
+
+    <p class="medium"> 
+    Hand in a printed copy of the donkey image after texture synthesis has been used to remove the donkey.
+    </p>
+
+    </li><li> <code>(5 points)</code>
+    <p class="medium"> 
+    Try running this texture synthesis method on some new images of your choosing.  You will need to indicate the area of the removed region in the code.  You can load your own image by altering the line that reads <tt>donkey.jpg </tt> in <tt>Holefill.py</tt>.  You will need to select small regions to avoid long run times.
+    </p>
+
+    <p class="medium"> 
+    You can specify the fill and texture regions yourself by typing
+    </p>
+    
+    <pre class="prettyprint lang-py prettyprinted" width="230" style=""><span class="pln">	    </span><code class="prettyprint lang-py" width="230"><span class="pln">    
+        python polyselect</span><span class="pun">.</span><span class="pln">py
+        </span></code><span class="pln">
+    </span></pre>
+        
+    <p class="medium">
+    at the command prompt. The donkey image will be displayed.  You draw a polygon by selecting each successive vertex with a mouse click. Close the display window to complete and save the polygon.  To try another image, you will have to alter the variable <tt>imname</tt> around line 90. Regions you specify yourself will be saved for subsequent use as the files <tt>fill_region.pkl</tt> and <tt>texture_region.pkl</tt>, overwriting existing files with the same name. Note: Be sure to save copies of the original <tt>fill_region.pkl</tt> and <tt>texture_region.pkl</tt> files.
+    </p>
+
+    <p class="medium">
+    Take a look at the code which randomly selects from the best matching patches. This takes an argument <tt>randomPatchSD </tt> which is the standard deviation of the number of the patch that gets chosen. If this value is set to 0, then the optimal patch (minimum of the ssd image) is always chosen. If this value is large, then the patch choice will be more random. Experiment with this value and with <tt>patchL </tt> which defines the size of the synthesis patches.
+    </p>
+
+    <p class="medium">
+    Hand in texture synthesis results for 2 new images, where one shows the algorithm performing well and the other shows it performing poorly.  For each example, show both the original image and the modified one.  You do not need to print in colour.  Briefly describe why the method failed in the case in which it performed poorly.
+    </p>
+    </li>
+
+    <li> <code>(6 points)</code>
+    <p class="medium">
+    Provide an explanation for the effects of the <tt>randomPatchSD </tt> and <tt>patchL </tt> parameters.  What results can be expected if these values are too small or too large, and why do these results happen?
+    </p>
+    </li>
+
+    <h2>Deliverables</h2>
+    
+    <p class="medium">
+    Hand your functions (i.e.,&nbsp;<tt>*.py </tt> files) or a Jupyter Notebook.  These must have sufficient comments for others to easily understand the code. You will lose marks for insufficient or unclear comments.  In addition, hand in the images and answers requested in a single PDF file. Specifically PDF file should include the following:  
+    </p><ol>
+        <li>the donkey image after texture synthesis has been used to remove the donkey</li>
+        <li>the texture synthesis examples for the 2 images of your choosing. (For each example, include both the original image and the modified one.)</li>
+    </ol>
+    <p></p>
+
+    <p class="medium">
+    Both Python files and PDF should be submitted through Canvas. 
+    </p>
+
+</ol></div>
+
+<div class="clearingdiv">&nbsp;</div>
+</div>
+</div>
+<div id="footer">© 2018 Leonid Sigal | Design by <a href="http://andreasviklund.com/">Andreas Viklund</a></div>
+
+
+
+
+</body></html>
