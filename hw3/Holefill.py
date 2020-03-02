@@ -16,17 +16,21 @@ def ComputeSSD(TODOPatch, TODOMask, textureIm, patchL):
 	ssd_cols = tex_cols - 2 * patchL
 	SSD = np.zeros((ssd_rows,ssd_cols))
 
+	# Modifies TODOPatch to apply TODOMask, making all TODOMask=1 elements 0.
+	# In this way, only Elements in TODOPatch with corresponding TODOMask=0 have value !=0
+	# Also converts this modified TODOPatch to be 3 layers repeated to handle RGB
 	TODOPatchMask = 1.0*np.multiply(TODOPatch, np.transpose(np.array([1-TODOMask,]*3)))
-	print 1-TODOMask
+
 	for r in range(ssd_rows):
 		for c in range(ssd_cols):
 			
 			# Compute sum square difference between textureIm and TODOPatch
 			# for all pixels where TODOMask = 0, and store the result in SSD
-			# SSD[r,c] = rand.randrange(0,1000000)
-			#print r, r+2*patchL+1
-			#print c, c+2*patchL+1
-			SSD[r,c] = np.sum(np.square(np.subtract(1.0*textureIm[r:r+2*patchL+1,c:c+2*patchL+1],1.0*TODOPatch)))
+			
+			# Slice textureIm array according to patch size, and square difference elementwise with TODOPatchMask
+			# Apply sum through the whole array. Assign to SSD
+			# Multiply by 1.0 to conver uint8 -> float
+			SSD[r,c] = np.sum(np.square(np.subtract(1.0*textureIm[r:r+2*patchL+1,c:c+2*patchL+1],1.0*TODOPatchMask)))
 			pass
 		pass
 	return SSD
@@ -150,20 +154,20 @@ imHole[fill_indices] = 0
 #
 if showResults == True:
 	# original
-	#UNCOMMENT im.show()
+	im.show()
 	# convert to a PIL image, show fillRegion and draw a box around textureIm
 	im1 = Image.fromarray(imHole).convert('RGB')
 	im1 = DrawBox(im1,jTextureMin,iTextureMin,jTextureMax,iTextureMax)
-	#UNCOMMENT im1.show()
+	im1.show()
 	print "Are you happy with this choice of fillRegion and textureIm?"
-	Yes_or_No = True # original is FALSE	
-	'''
+	Yes_or_No = False	
+
 	while not Yes_or_No:
 		answer = raw_input("Yes or No: ")
 		if answer == "Yes" or answer == "No":
 			Yes_or_No = True
 	assert answer == "Yes", "You must be happy. Please try again."
-	'''
+
 #
 # Perform the hole filling
 #
