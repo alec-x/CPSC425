@@ -7,20 +7,26 @@ import pickle
 ##############################################################################
 #                        Functions for you to complete                       #
 ##############################################################################
-
+import random as rand
+rand.seed(10)
 def ComputeSSD(TODOPatch, TODOMask, textureIm, patchL):
 	patch_rows, patch_cols, patch_bands = np.shape(TODOPatch)
 	tex_rows, tex_cols, tex_bands = np.shape(textureIm)
 	ssd_rows = tex_rows - 2 * patchL
 	ssd_cols = tex_cols - 2 * patchL
 	SSD = np.zeros((ssd_rows,ssd_cols))
+
+	TODOPatchMask = 1.0*np.multiply(TODOPatch, np.transpose(np.array([1-TODOMask,]*3)))
+	print 1-TODOMask
 	for r in range(ssd_rows):
 		for c in range(ssd_cols):
+			
 			# Compute sum square difference between textureIm and TODOPatch
 			# for all pixels where TODOMask = 0, and store the result in SSD
-			#
-			# ADD YOUR CODE HERE
-			#
+			# SSD[r,c] = rand.randrange(0,1000000)
+			#print r, r+2*patchL+1
+			#print c, c+2*patchL+1
+			SSD[r,c] = np.sum(np.square(np.subtract(1.0*textureIm[r:r+2*patchL+1,c:c+2*patchL+1],1.0*TODOPatch)))
 			pass
 		pass
 	return SSD
@@ -29,12 +35,12 @@ def CopyPatch(imHole,TODOMask,textureIm,iPatchCenter,jPatchCenter,iMatchCenter,j
 	patchSize = 2 * patchL + 1
 	for i in range(patchSize):
 		for j in range(patchSize):
+
 			# Copy the selected patch selectPatch into the image containing
 			# the hole imHole for each pixel where TODOMask = 1.
 			# The patch is centred on iPatchCenter, jPatchCenter in the image imHole
-			#
-			# ADD YOUR CODE HERE
-			#
+			if TODOMask[i,j] == 1:
+				imHole[iPatchCenter-patchL+i,jPatchCenter-patchL+j] =  textureIm[iMatchCenter-patchL+i,jMatchCenter-patchL+j]
 			pass
 		pass
 	return imHole
@@ -144,19 +150,20 @@ imHole[fill_indices] = 0
 #
 if showResults == True:
 	# original
-	im.show()
+	#UNCOMMENT im.show()
 	# convert to a PIL image, show fillRegion and draw a box around textureIm
 	im1 = Image.fromarray(imHole).convert('RGB')
 	im1 = DrawBox(im1,jTextureMin,iTextureMin,jTextureMax,iTextureMax)
-	im1.show()
+	#UNCOMMENT im1.show()
 	print "Are you happy with this choice of fillRegion and textureIm?"
-	Yes_or_No = False
+	Yes_or_No = True # original is FALSE	
+	'''
 	while not Yes_or_No:
 		answer = raw_input("Yes or No: ")
 		if answer == "Yes" or answer == "No":
 			Yes_or_No = True
 	assert answer == "Yes", "You must be happy. Please try again."
-
+	'''
 #
 # Perform the hole filling
 #
