@@ -88,7 +88,7 @@ patchL = 10
 patchSize = 2*patchL+1
 
 # Standard deviation for random patch selection
-randomPatchSD = 1
+randomPatchSD = 5
 
 # Display results interactively
 showResults = True
@@ -97,7 +97,7 @@ showResults = True
 # Read input image
 #
 
-im = Image.open('donkey.jpg').convert('RGB')
+im = Image.open('soccer.jpg').convert('RGB')
 im_array = np.asarray(im, dtype=np.uint8)
 imRows, imCols, imBands = np.shape(im_array)
 
