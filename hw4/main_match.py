@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 import sys
 
 def main():
-    assert(len(sys.argv) == 2)
+    # 3 arguments, threshold, orient agreement, and scale agreement
+    assert(len(sys.argv) == 4)
     # Test run matching with no ransac
     plt.figure(figsize=(20, 20))
 

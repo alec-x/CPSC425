@@ -30,7 +30,19 @@ def RANSACFilter(
     assert isinstance(orient_agreement, float)
     assert isinstance(scale_agreement, float)
     ## START
-
+    randomSample = []
+    for i in range(10):
+        randomSample.append(random.choice(keypoints1))
+    subset = []
+    ## list of lists of match pairs (list) so list of lists of lists
+    ## we'll call this subsets
+    ## For 10 random points:
+        ## Compute angle difference of first matched_pair
+        ## For all points (including self):
+            ## Compute angle difference
+            ## if angle difference within threshold of first matched pair:
+                ## Append to subsets[random_point]
+    ## largest set = max(subsets, key=len)
 
     ## END
     assert isinstance(largest_set, list)
