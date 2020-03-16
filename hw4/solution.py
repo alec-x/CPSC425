@@ -36,7 +36,8 @@ def RANSACFilter(
     assert isinstance(largest_set, list)
     return largest_set
 
-
+def DescriptorAngle(descriptor1, descriptor2):
+    return math.cos(np.dot(descriptor1, descriptor2))
 
 def FindBestMatches(descriptors1, descriptors2, threshold):
     """
@@ -58,8 +59,22 @@ def FindBestMatches(descriptors1, descriptors2, threshold):
     assert isinstance(threshold, float)
     ## START
     ## the following is just a placeholder to show you the output format
-    num = 5
-    matched_pairs = [[i, i] for i in range(num)]
+    matched_pairs = []
+    indexOf1 = 0
+    for i in descriptors1:
+        currAngles = []
+
+        for j in descriptors2:
+            currAngles.append(DescriptorAngle(i,j))
+        
+        sortedAngles = sorted(currAngles)
+        
+        if sortedAngles[0]/sortedAngles[1] < threshold:
+            matched_pairs.append([indexOf1, currAngles.index(sortedAngles[0])])
+
+        indexOf1 += 1
+    # num = 5
+    # matched_pairs = [[i, i] for i in range(num)]
     ## END
     return matched_pairs
 
