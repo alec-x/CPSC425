@@ -3,6 +3,8 @@ import cv2
 import math
 import random
 
+def DescriptorAngle(descriptor1, descriptor2):
+    return math.acos(np.dot(descriptor1, descriptor2))
 
 def RANSACFilter(
         matched_pairs, keypoints1, keypoints2,
@@ -47,9 +49,6 @@ def RANSACFilter(
     ## END
     assert isinstance(largest_set, list)
     return largest_set
-
-def DescriptorAngle(descriptor1, descriptor2):
-    return math.cos(np.dot(descriptor1, descriptor2))
 
 def FindBestMatches(descriptors1, descriptors2, threshold):
     """
