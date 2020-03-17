@@ -32,21 +32,30 @@ def RANSACFilter(
     assert isinstance(orient_agreement, float)
     assert isinstance(scale_agreement, float)
     ## START
-    randomSample = []
-    for i in range(10):
-        randomSample.append(random.choice(keypoints1))
-    subset = []
-    ## list of lists of match pairs (list) so list of lists of lists
-    ## we'll call this subsets
-    ## For 10 random points:
-        ## Compute angle difference of first matched_pair
-        ## For all points (including self):
-            ## Compute angle difference
-            ## if angle difference within threshold of first matched pair:
-                ## Append to subsets[random_point]
-    ## largest set = max(subsets, key=len)
+    subsets = [] # list of lists of match pairs (list) so list of lists of lists
+    oThresh = orient_agreement/180.0*math.pi # Convert degrees to radians
 
-    ## END
+    for _ in range(10):
+        randomMatch = random.choice(matched_pairs)
+
+        baseAngle = (keypoints1[randomMatch[0]][3] - keypoints2[randomMatch[1]][3]) % (2.0*math.pi)
+        baseScale = keypoints2[randomMatch[1]][2]/keypoints1[randomMatch[0]][2]
+        
+        goodKeyPoints = []
+        for match in matched_pairs:
+            matchAngle = (keypoints1[match[0]][3] - keypoints2[match[1]][3]) % (2.0*math.pi)
+            matchScale = keypoints2[match[1]][2]/keypoints1[match[0]][2]
+
+            print "..."
+            print str(baseAngle - oThresh) + " " + str(matchAngle) + " " + str(baseAngle + oThresh)
+            if baseAngle - oThresh <= matchAngle <= baseAngle + oThresh:
+                if baseScale - scale_agreement <= matchScale <= baseScale + scale_agreement:
+                    goodKeyPoints.append(match)
+        
+        subsets.append(goodKeyPoints)
+    largest_set = max(subsets, key=len)
+
+    ## EN
     assert isinstance(largest_set, list)
     return largest_set
 
