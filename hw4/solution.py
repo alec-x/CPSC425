@@ -3,9 +3,6 @@ import cv2
 import math
 import random
 
-def DescriptorAngle(descriptor1, descriptor2):
-    return math.acos(np.dot(descriptor1, descriptor2))
-
 def RANSACFilter(
         matched_pairs, keypoints1, keypoints2,
         orient_agreement, scale_agreement):
@@ -45,9 +42,10 @@ def RANSACFilter(
         for match in matched_pairs:
             matchAngle = (keypoints1[match[0]][3] - keypoints2[match[1]][3]) % (2.0*math.pi)
             matchScale = keypoints2[match[1]][2]/keypoints1[match[0]][2]
-
+            '''
             print "..."
             print str(baseAngle - oThresh) + " " + str(matchAngle) + " " + str(baseAngle + oThresh)
+            '''
             if baseAngle - oThresh <= matchAngle <= baseAngle + oThresh:
                 if baseScale - scale_agreement <= matchScale <= baseScale + scale_agreement:
                     goodKeyPoints.append(match)
@@ -82,16 +80,18 @@ def FindBestMatches(descriptors1, descriptors2, threshold):
     matched_pairs = []
     indexOf1 = 0
     for i in descriptors1:
-        currAngles = []
-
-        for j in descriptors2:
-            currAngles.append(DescriptorAngle(i,j))
+        currAngles = [] # holds all comparisons to current descriptor
         
+        # calculate all comparisons to current descriptor
+        for j in descriptors2:
+            currAngles.append(math.acos(np.dot(i, j)))
+        
+        # Sort angles from smallest to largest
         sortedAngles = sorted(currAngles)
         
         if sortedAngles[0]/sortedAngles[1] < threshold:
+            # Find index of i in descriptors1, and index of smallest sorted angle in current angles
             matched_pairs.append([indexOf1, currAngles.index(sortedAngles[0])])
-
         indexOf1 += 1
     # num = 5
     # matched_pairs = [[i, i] for i in range(num)]
