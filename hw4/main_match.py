@@ -5,10 +5,13 @@ import sys
 def main():
     # 3 arguments, threshold, orient agreement, and scale agreement
     assert(len(sys.argv) == 4)
+    threshold = float(sys.argv[1])
+    orientThreshold = float(sys.argv[2])
+    scaleThreshold = float(sys.argv[3])
     # Test run matching with no ransac
     plt.figure(figsize=(20, 20))
 
-    im = utils.Match('./data/scene', './data/book', ratio_thres=float(sys.argv[1]))
+    im = utils.Match('./data/scene', './data/book', ratio_thres=threshold)
     plt.title('Match')
     plt.imshow(im)
 
@@ -16,7 +19,7 @@ def main():
     plt.figure(figsize=(20, 20))
     im = utils.MatchRANSAC(
         './data/scene', './data/basmati',
-        ratio_thres=0.6, orient_agreement=30, scale_agreement=0.5)
+        ratio_thres=threshold, orient_agreement=orientThreshold, scale_agreement=scaleThreshold)
     plt.title('MatchRANSAC')
     plt.imshow(im)
 
