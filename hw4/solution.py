@@ -115,8 +115,20 @@ def KeypointProjection(xy_points, h):
     assert xy_points.shape[1] == 2
     assert h.shape == (3, 3)
 
-    # START
-
+    # START    
+    xy_points = np.hstack((xy_points,np.ones((xy_points.shape[0],1))))
+    xy_homo = np.matmul(xy_points,h)
+    
+    xy_divide_by = xy_homo[:,2:]
+    xy_divide_by[xy_divide_by <= 1e-10] = 1e-10
+    
+    xy_points_out = xy_homo[:,:2]
+    # print xy_divide_by.shape
+    # print xy_points_out.shape
+    
+    a = xy_points_out/xy_divide_by[:, np.newaxis]
+    print a
+    # print xy_points_out.shape
     # END
     return xy_points_out
 
