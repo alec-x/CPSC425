@@ -115,20 +115,21 @@ def KeypointProjection(xy_points, h):
     assert xy_points.shape[1] == 2
     assert h.shape == (3, 3)
 
-    # START    
+    # START   
+
+    # Initialize out array to have same shape as in array
+    xy_points_out = np.empty_like(xy_points) 
+
+    # Append 1 column to xy_points
     xy_points = np.hstack((xy_points,np.ones((xy_points.shape[0],1))))
-    xy_homo = np.matmul(xy_points,h)
-    
-    xy_divide_by = xy_homo[:,2:]
-    xy_divide_by[xy_divide_by <= 1e-10] = 1e-10
-    
-    xy_points_out = xy_homo[:,:2]
-    # print xy_divide_by.shape
-    # print xy_points_out.shape
-    
-    a = xy_points_out/xy_divide_by[:, np.newaxis]
-    print a
-    # print xy_points_out.shape
+
+    # Treating each point separately
+    for i in range(xy_points.shape[0]):
+        # Convert point to homogenous coordinate by multiplying with h matrix
+        projCoord = np.matmul(h,xy_points[i,:])
+        
+        # Divide x,y coord by z coord and assign to output array
+        xy_points_out[i] = np.array([projCoord[0]/projCoord[2], projCoord[1]/projCoord[2]])
     # END
     return xy_points_out
 
