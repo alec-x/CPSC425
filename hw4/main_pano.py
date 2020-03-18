@@ -45,20 +45,19 @@ def create_pano(
 
 
 def main():
+    # take arguments from command line
     assert(len(sys.argv) == 4)
-    '''
-    num_iter = 50
-    tol = 10
-    ratio_thres = 0.9
-    '''
-    num_iter = float(sys.argv[1])
+    num_iter = int(sys.argv[1])
     tol = float(sys.argv[2])
     ratio_thres = float(sys.argv[3])
 
-    canvas_height = 600
-    canvas_width = 1000
-    image_list = ['Rainier1', 'Rainier2', 'Rainier3','Rainier4','Rainier5','Rainier6']
+    canvas_height = 1125
+    canvas_width = 1500
 
+    # image_list = ['Rainier1', 'Rainier2', 'Rainier3','Rainier4','Rainier5','Rainier6']
+    # image_list = ['fountain4','fountain0']
+    # image_list = ['garden0','garden3','garden4']
+    image_list = ['irving_out3','irving_out6','irving_out5']
     image_list = [op.join(path, im) for im in image_list]
     create_pano(image_list, ratio_thres, canvas_height, canvas_width,
                 num_iter, tol, figsize=(20, 20))
