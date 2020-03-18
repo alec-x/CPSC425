@@ -135,11 +135,11 @@ def KeypointProjection(xy_points, h):
 
 def RANSACHomography(xy_src, xy_ref, num_iter, tol):
     """
-    Given matches of keyponit xy coordinates, perform RANSAC to obtain
+    Given matches of keypoint xy coordinates, perform RANSAC to obtain
     the homography matrix. At each iteration, this function randomly
     choose 4 matches from xy_src and xy_ref.  Compute the homography matrix
     using the 4 matches.  Project all source "xy_src" keypoints to the
-    reference image.  Check how many projected keyponits are within a `tol`
+    reference image.  Check how many projected keypoints are within a `tol`
     radius to the coresponding xy_ref points (a.k.a. inliers).  During the
     iterations, you should keep track of the iteration that yields the largest
     inlier set. After the iterations, you should use the biggest inlier set to
@@ -161,9 +161,51 @@ def RANSACHomography(xy_src, xy_ref, num_iter, tol):
     tol = tol*1.0
 
     # START
+    maxInliers = 0
+    h = None
+    
+    # Tunable param in case we wanted to use more than 4 matches
+    numSample = 4
+    
+    # number samples in xy_src used to randomly select indices
+    num_matches = xy_src.shape[0]
 
+    for _ in range(num_iter):
+        # Randomly select indices numSample number of times
+        randIndexes = [random.randint(0,num_matches-1) for _ in range(numSample)]
 
+        # Create empty arrays for the randomly selected indices and build them
+        # by stacking the retrieved array slices
+        xy_src_i = np.array([]).reshape(0,2)
+        xy_ref_i = np.array([]).reshape(0,2)
+        for index in randIndexes:
+            xy_src_i = np.vstack((xy_src_i, xy_src[index]))
+            xy_ref_i = np.vstack((xy_ref_i, xy_ref[index]))
 
+        # Generate homography matrix with current samples
+        currh, _ = cv2.findHomography(xy_src_i, xy_ref_i)
+
+        numInliers = 0
+        for i in range(len(xy_src)):
+            # Calculate the projected, then the output point using source and h matrix
+            projPoint = np.matmul(currh,np.hstack((xy_src[i,:],1)))
+            outPoint = np.array([projPoint[0]/projPoint[2], projPoint[1]/projPoint[2]])
+            
+            # Calculate distance
+            outX = outPoint[0]
+            outY = outPoint[1]
+            refX = xy_ref[i,0]
+            refY = xy_ref[i,1]
+            dist = math.sqrt((outX - refX)**2 + (outY-refY)**2)
+
+            # Evaluate distance against tolerance
+            if dist <= tol:
+                numInliers += 1
+        
+        # If current h is best, update maximum inliers achieved and output h
+        if numInliers > maxInliers:
+            h = currh
+            maxInliers = numInliers
     # END
     assert isinstance(h, np.ndarray)
     assert h.shape == (3, 3)
