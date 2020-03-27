@@ -22,11 +22,14 @@ def build_vocabulary(image_paths, vocab_size):
     # Since want to sample tens of thousands of SIFT descriptors from different images, we
     # calculate the number of SIFT descriptors we need to sample from each image.
     n_each = int(np.ceil(10000 / n_image))
-
+    print "There are " + str(n_image) + " images"
+    print "Extracting " + str(n_each) + " descriptors/image"
+    print "total # descriptors: " + str(n_image*n_each)
     # Initialize an array of features, which will store the sampled descriptors
     # keypoints = np.zeros((n_image * n_each, 2))
     descriptors = np.zeros((n_image * n_each, 128))
-
+    
+    print "processing sift descriptors #:"
     for i, path in enumerate(image_paths):
         # Load features from each image
         features = np.loadtxt(path, delimiter=',',dtype=float)
@@ -34,11 +37,19 @@ def build_vocabulary(image_paths, vocab_size):
         sift_descriptors = features[:, 2:]
 
         # TODO: Randomly sample n_each descriptors from sift_descriptor and store them into descriptors
-
+        # Randomly select indices n_each number of times
+        randIndexes = [np.random.randint(0,sift_descriptors.shape[0] - 1) for _ in range(n_each)]
+        
+        
+        for j, index in enumerate(randIndexes):
+            descriptors[i*n_each+j] = sift_descriptors[index]
+            if ((i*n_each+j) % 1000) == 0: 
+                print i*n_each+j
     # TODO: pefrom k-means clustering to cluster sampled sift descriptors into vocab_size regions.
     # You can use KMeans from sci-kit learn.
     # Reference: https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html
-    
+    print "fitting K-Means"
+    kmeans = KMeans(50).fit(descriptors)
     return kmeans
     
 def get_bags_of_sifts(image_paths, kmeans):
@@ -61,7 +72,7 @@ def get_bags_of_sifts(image_paths, kmeans):
     for i, path in enumerate(image_paths):
         # Load features from each image
         features = np.loadtxt(path, delimiter=',',dtype=float)
-
+        print features.shape
         # TODO: Assign each feature to the closest cluster center
         # Again, each feature consists of the (x, y) location and the 128-dimensional sift descriptor
         # You can access the sift descriptors part by features[:, 2:]
