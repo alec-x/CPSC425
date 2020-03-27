@@ -1,3 +1,4 @@
 .vscode/
 *.pyc
-hw5/data/
+hw5/sift/
+hw5/images
