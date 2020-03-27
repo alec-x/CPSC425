@@ -1,0 +1,373 @@
+{
+    "mark": [
+        {
+            "name": "appdirs",
+            "state": "auto"
+        },
+        {
+            "name": "backports.abc",
+            "state": "auto"
+        },
+        {
+            "name": "backports_abc_remove",
+            "state": "auto"
+        },
+        {
+            "name": "certifi",
+            "state": "auto"
+        },
+        {
+            "name": "configobj",
+            "state": "auto"
+        },
+        {
+            "name": "cycler",
+            "state": "auto"
+        },
+        {
+            "name": "distribute_remove",
+            "state": "auto"
+        },
+        {
+            "name": "freetype",
+            "state": "auto"
+        },
+        {
+            "name": "functools32",
+            "state": "auto"
+        },
+        {
+            "name": "icu4c",
+            "state": "auto"
+        },
+        {
+            "name": "intel_runtime",
+            "state": "auto"
+        },
+        {
+            "name": "libpng",
+            "state": "auto"
+        },
+        {
+            "name": "matplotlib",
+            "state": "manual"
+        },
+        {
+            "name": "mkl",
+            "state": "auto"
+        },
+        {
+            "name": "numpy",
+            "state": "manual"
+        },
+        {
+            "name": "opencv",
+            "state": "manual"
+        },
+        {
+            "name": "pil",
+            "state": "manual"
+        },
+        {
+            "name": "pil_remove",
+            "state": "auto"
+        },
+        {
+            "name": "pillow",
+            "state": "auto"
+        },
+        {
+            "name": "pip",
+            "state": "manual"
+        },
+        {
+            "name": "pyparsing",
+            "state": "auto"
+        },
+        {
+            "name": "pyqt",
+            "state": "manual"
+        },
+        {
+            "name": "pyqt5",
+            "state": "manual"
+        },
+        {
+            "name": "python_dateutil",
+            "state": "manual"
+        },
+        {
+            "name": "pytz",
+            "state": "auto"
+        },
+        {
+            "name": "qt",
+            "state": "auto"
+        },
+        {
+            "name": "scikit_learn",
+            "state": "manual"
+        },
+        {
+            "name": "scipy",
+            "state": "manual"
+        },
+        {
+            "name": "setuptools",
+            "state": "manual"
+        },
+        {
+            "name": "singledispatch",
+            "state": "auto"
+        },
+        {
+            "name": "sip",
+            "state": "auto"
+        },
+        {
+            "name": "six",
+            "state": "auto"
+        },
+        {
+            "name": "ssl_match_hostname",
+            "state": "auto"
+        },
+        {
+            "name": "tornado",
+            "state": "auto"
+        },
+        {
+            "name": "wxpython",
+            "state": "auto"
+        }
+    ],
+    "metadata_version": "2.0",
+    "modifiers": {
+        "allow_any": [],
+        "allow_newer": [],
+        "allow_older": []
+    },
+    "repositories": {
+        "packages": [
+            "enthought/commercial",
+            "enthought/free"
+        ],
+        "runtimes": [
+            "enthought/free"
+        ]
+    },
+    "requirements": [
+        {
+            "name": "appdirs",
+            "repository": "enthought/free",
+            "sha256": "895e2936269710e5ee1cef9937f2331c0f22e46c2f9a2da4256bb0002b30dc0a",
+            "version": "1.4.3-1"
+        },
+        {
+            "name": "backports.abc",
+            "repository": "enthought/free",
+            "sha256": "93d956d163ac7eafad13b899b4f37badb9b3c891267509bbbd4298683090899d",
+            "version": "0.5-1"
+        },
+        {
+            "name": "backports_abc_remove",
+            "repository": "enthought/free",
+            "sha256": "e4177bebe04badad417064b1bd3bde6ac54a58ca3cd0acf2edba4ea325306307",
+            "version": "0.4-2"
+        },
+        {
+            "name": "certifi",
+            "repository": "enthought/free",
+            "sha256": "3c23d1885992b2fcccac61651bda0addede0cb64cf26efcc55c8826744dd65aa",
+            "version": "2017.7.27.1-1"
+        },
+        {
+            "name": "configobj",
+            "repository": "enthought/free",
+            "sha256": "8400a438aa5cf15449dbdc5140c6152fd10a51918f47688a7426a59c852ebd91",
+            "version": "5.0.6-1"
+        },
+        {
+            "name": "cycler",
+            "repository": "enthought/free",
+            "sha256": "826552d1a6ead2da53a598e5b24919ec597a3f3667604512b136564d01d71037",
+            "version": "0.10.0-1"
+        },
+        {
+            "name": "distribute_remove",
+            "repository": "enthought/free",
+            "sha256": "db7dee5172f00d0a57c2f3e9e2a3d2712044a28f30395b4d3d68b45506516299",
+            "version": "1.0.0-4"
+        },
+        {
+            "name": "freetype",
+            "repository": "enthought/free",
+            "sha256": "934c1f954d68a621539df0d5702cf3805947f9e71a9166fdce079046d8e8f292",
+            "version": "2.5.3-9"
+        },
+        {
+            "name": "functools32",
+            "repository": "enthought/free",
+            "sha256": "e58516815b2bca8a1468b03f4dcbd8d3df147d8b61d2a346ba585926b8f754ff",
+            "version": "3.2.3.2-1"
+        },
+        {
+            "name": "icu4c",
+            "repository": "enthought/free",
+            "sha256": "83df4f20b1b8705ccdefb60b8ff2f13d4d6e6ccba4ee568dba6ec539379eab8b",
+            "version": "50.2-2"
+        },
+        {
+            "name": "intel_runtime",
+            "repository": "enthought/free",
+            "sha256": "5f9652688e085e1af3b6cb6c404ee32f1a388b52631ebd1f6d627bd25313f694",
+            "version": "14.0.6.241-2"
+        },
+        {
+            "name": "libpng",
+            "repository": "enthought/free",
+            "sha256": "a214cca61120f8fbb3a264ac86085b12f8f950cccb39a159304a2a86ad2b6008",
+            "version": "1.6.36-3"
+        },
+        {
+            "name": "matplotlib",
+            "repository": "enthought/free",
+            "sha256": "241b4ed2d8d4e79a77a800c71be6e0926642aedced1381985ea6f9a13f6b4b6b",
+            "version": "2.0.0-4"
+        },
+        {
+            "name": "mkl",
+            "repository": "enthought/free",
+            "sha256": "d48227fa752cbfb1b2cf88284e6ffaa7ad36a91a633bcfc2792ae76ac784a478",
+            "version": "2017.0.3-1"
+        },
+        {
+            "name": "numpy",
+            "repository": "enthought/free",
+            "sha256": "c2181cc615b1bdd7b862a9dfc854ff692a15c6c48849d75a513004da5867b859",
+            "version": "1.11.3-3"
+        },
+        {
+            "name": "opencv",
+            "repository": "enthought/free",
+            "sha256": "039d58e152b8f411718220c30639b8448585cb7d9a82de662c7e34b35d9ec1f6",
+            "version": "2.4.9-5"
+        },
+        {
+            "name": "pil_remove",
+            "repository": "enthought/free",
+            "sha256": "34f5cf18037e3ecf591f5c4ce8581ffdfe9f6a82c2923d16c015879efa72f56d",
+            "version": "1.0.0-3"
+        },
+        {
+            "name": "pillow",
+            "repository": "enthought/free",
+            "sha256": "f6770f8092938d90ddd5beec3f4492aece679d6bd3f5e19103a84c02c046160b",
+            "version": "5.2.0-3"
+        },
+        {
+            "name": "pip",
+            "repository": "enthought/free",
+            "sha256": "d0c08f77e95d3a0104cdf5d3b7ae71c77826f98ba14026ecbb5d08f60cf3c95e",
+            "version": "18.1-1"
+        },
+        {
+            "name": "pyparsing",
+            "repository": "enthought/free",
+            "sha256": "bd8f8043b66686f0db578bcbba535272eb7d54bf0d01c61cd8399cd9a17419d0",
+            "version": "2.2.0-1"
+        },
+        {
+            "name": "pyqt",
+            "repository": "enthought/free",
+            "sha256": "8c98db8ace6cca692294918185d6736c10a31bdd3cb284d30f30306b9e2a0a28",
+            "version": "4.12.1-1"
+        },
+        {
+            "name": "pyqt5",
+            "repository": "enthought/free",
+            "sha256": "be637894e65ba7dafb3e74b1a9fd69e211b86606c498f4fcb01067872291ce15",
+            "version": "5.7.1-1"
+        },
+        {
+            "name": "python_dateutil",
+            "repository": "enthought/free",
+            "sha256": "03a3c65aed0f746cf404a2cbc88b9cecc3ab514a0acfd989cfad9796c148dc37",
+            "version": "2.6.0-1"
+        },
+        {
+            "name": "pytz",
+            "repository": "enthought/free",
+            "sha256": "d987bd3d6bc32f441a67224a34f9d5103a5621a9b013a1ee8a0e59d8c3ed268d",
+            "version": "2017.3-1"
+        },
+        {
+            "name": "qt",
+            "repository": "enthought/free",
+            "sha256": "8c41afa107701cc746bffcde804b72d62cde4106164e7a86d63c201901e4399d",
+            "version": "5.6.2-1"
+        },
+        {
+            "name": "scikit_learn",
+            "repository": "enthought/free",
+            "sha256": "9b999178c68315faa8443c011204fe81cb24a49d32ae8fbcef93fc98face27b7",
+            "version": "0.18.1-5"
+        },
+        {
+            "name": "scipy",
+            "repository": "enthought/free",
+            "sha256": "6e88a54c6ecd7ee0706eb4f31fbe4748c64c279c32a7bbb30d9adb52cc1d41de",
+            "version": "0.19.0-2"
+        },
+        {
+            "name": "setuptools",
+            "repository": "enthought/free",
+            "sha256": "fedd95f3bc79010bef20949eedb25f9a9b93c2c5e822feb1f63303879ec56dc2",
+            "version": "23.1.0-2"
+        },
+        {
+            "name": "singledispatch",
+            "repository": "enthought/free",
+            "sha256": "f878c0b368e3fa104bc68d37d2ac3e1449160e920170e67e12511262b0efa348",
+            "version": "3.4.0.3-1"
+        },
+        {
+            "name": "sip",
+            "repository": "enthought/free",
+            "sha256": "ce8799ee3a7cfe9d22d86ebc54cf522e84b6c57039522d0c112f209808e06232",
+            "version": "4.19.2-2"
+        },
+        {
+            "name": "six",
+            "repository": "enthought/free",
+            "sha256": "059837fe59783153b2b608593fe0b4de69b04b608a44005caf2bdcb1cdf29db5",
+            "version": "1.10.0-1"
+        },
+        {
+            "name": "ssl_match_hostname",
+            "repository": "enthought/free",
+            "sha256": "fcb922b764cfc85955b03209bf54d5d62807ec7651b23c5c5e8c48ea136d63c4",
+            "version": "3.5.0.1-1"
+        },
+        {
+            "name": "tornado",
+            "repository": "enthought/free",
+            "sha256": "c1d8b15a52d0e11bcde7a46c2b57020d6df3a8cceed7d8de9f9c1c47ceabf476",
+            "version": "4.4.2-3"
+        },
+        {
+            "name": "wxpython",
+            "repository": "enthought/free",
+            "sha256": "47f8d276bd56a4f5658a893030fb61a7f4c75792a01ff6874f971bfadfc18026",
+            "version": "2.8.10.1-7"
+        }
+    ],
+    "runtime": {
+        "implementation": "cpython",
+        "platform": "win_x86_64",
+        "platform_abi": "msvc2008",
+        "repository": "enthought/free",
+        "sha256": "dba2f73004ec9aab36dc02dafb5feb419438ebc89387d48e1ae85c65aaa11812",
+        "version": "2.7.15+2"
+    }
+}
