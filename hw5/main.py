@@ -49,7 +49,7 @@ def bags_of_sifts_save(train_image_paths, test_image_paths, vocabSize, image_set
     test_feats_file.close()
     return
 
-# bags_of_sifts_save(train_image_paths, test_image_paths, 200, "all")
+bags_of_sifts_save(train_image_paths, test_image_paths, 200, "all")
 
 
 print "Load saved features for training and testing"
@@ -61,7 +61,7 @@ test_image_feats = np.load("test_image_feats_all.npy")
 # For each picture histogram, increment the correct category histogram. 
 categorized_feats = np.zeros((15,train_image_feats.shape[1]))
 for i,im_feats in enumerate(train_image_feats):
-    categorized_feats[train_labels[i]] = categorized_feats[train_labels[i]] + im_feats
+    categorized_feats[train_labels[i]] += im_feats
 
 print "Generating Graphs"
 # Save the histogram for each category

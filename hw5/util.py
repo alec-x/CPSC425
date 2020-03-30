@@ -80,7 +80,7 @@ def get_bags_of_sifts(image_paths, kmeans):
         labels = kmeans.predict(features[:,2:])
         # For each label, increment the image i's label bin in image_feats by the normalized amount
         for label in labels:
-            image_feats[i][label] = image_feats[i][label] + 1.0/features.shape[0]
+            image_feats[i][label] += 1.0/features.shape[0]
 
 
         # TODO: Build a histogram normalized by the number of descriptors
