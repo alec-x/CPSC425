@@ -42,19 +42,19 @@ def bags_of_sifts_save(train_image_paths, test_image_paths, vocabSize, image_set
     test_image_feats = get_bags_of_sifts(test_image_paths, kmeans)
 
     train_feats_file = open("train_image_feats_" + str(image_set_name), "ab")
-    test_feats_file = open("test_image_feats" + str(image_set_name), "ab")
+    test_feats_file = open("test_image_feats_" + str(image_set_name), "ab")
     np.save(train_feats_file, train_image_feats)
     np.save(test_feats_file, test_image_feats)
     train_feats_file.close()
     test_feats_file.close()
     return
 
-bags_of_sifts_save(train_image_paths, test_image_paths, 200, "all")
+# bags_of_sifts_save(train_image_paths, test_image_paths, 200, "all")
 
-'''
-print "Load pickled features for training and testing"
-train_image_feats = pickle.load(open("train_image_feats_pickle", "rb"))
-test_image_feats = pickle.load(open("test_image_feats_pickle", "rb"))
+
+print "Load saved features for training and testing"
+train_image_feats = np.load("train_image_feats_all")
+test_image_feats = np.load("test_image_feats_all")
 
 # average histograms
 average_feats = train_image_feats.sum(axis=0)
@@ -62,7 +62,7 @@ average_feats = train_image_feats.sum(axis=0)
 print "Generating Graph"
 plt.bar(range(train_image_feats.shape[1]), average_feats)
 plt.show()
-'''
+
 #If you want to avoid recomputing the features while debugging the
 #classifiers, you can either 'save' and 'load' the extracted features
 #to/from a file.
