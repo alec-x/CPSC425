@@ -40,7 +40,7 @@ def bags_of_sifts_save(train_image_paths, test_image_paths, vocabSize, image_set
     print "Getting bag-of-SIFT Features"
     train_image_feats = get_bags_of_sifts(train_image_paths, kmeans)
     test_image_feats = get_bags_of_sifts(test_image_paths, kmeans)
-
+    print "Creating np data files"
     train_feats_file = open("train_image_feats_" + str(image_set_name), "ab")
     test_feats_file = open("test_image_feats_" + str(image_set_name), "ab")
     np.save(train_feats_file, train_image_feats)
@@ -53,8 +53,8 @@ def bags_of_sifts_save(train_image_paths, test_image_paths, vocabSize, image_set
 
 
 print "Load saved features for training and testing"
-train_image_feats = np.load("train_image_feats_all")
-test_image_feats = np.load("test_image_feats_all")
+train_image_feats = np.load("train_image_feats_all.npy")
+test_image_feats = np.load("test_image_feats_all.npy")
 
 # average histograms
 average_feats = train_image_feats.sum(axis=0)
