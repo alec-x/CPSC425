@@ -57,12 +57,19 @@ train_image_feats = np.load("train_image_feats_all.npy")
 test_image_feats = np.load("test_image_feats_all.npy")
 
 # average histograms
-average_feats = train_image_feats.sum(axis=0)
 
-print "Generating Graph"
-plt.bar(range(train_image_feats.shape[1]), average_feats)
-plt.show()
+# For each picture histogram, increment the correct category histogram. 
+categorized_feats = np.zeros((15,train_image_feats.shape[1]))
+for i,im_feats in enumerate(train_image_feats):
+    categorized_feats[train_labels[i]] = categorized_feats[train_labels[i]] + im_feats
 
+print "Generating Graphs"
+# Save the histogram for each category
+for i in range(15):
+    plt.bar(range(train_image_feats.shape[1]), categorized_feats[i])
+    plt.title("Histogram of features for " + labels[i])
+    plt.savefig('./q4histograms/' + labels[i] + '.png')
+    plt.clf()
 #If you want to avoid recomputing the features while debugging the
 #classifiers, you can either 'save' and 'load' the extracted features
 #to/from a file.
