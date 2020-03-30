@@ -44,7 +44,7 @@ and the most confident SVM will "win". Confidence, or distance from the
 margin, is W*X + B where '*' is the inner product or dot product and W and
 B are the learned hyperplane parameters. '''
 
-def svm_classify(train_image_feats, train_labels, test_image_feats):
+def svm_classify(train_image_feats, train_labels, test_image_feats,C_val):
 
     '''
     Parameters
@@ -66,7 +66,7 @@ def svm_classify(train_image_feats, train_labels, test_image_feats):
         # Reference: https://scikit-learn.org/stable/modules/svm.html
 
     '''
-    svm_model = svm.SVC()
+    svm_model = svm.LinearSVC(C=C_val)
     svm_model.fit(train_image_feats, train_labels)
 
     predicted_labels = svm_model.predict(test_image_feats)

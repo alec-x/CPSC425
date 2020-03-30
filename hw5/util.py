@@ -3,7 +3,7 @@ import os
 import glob
 from sklearn.cluster import KMeans
 
-def build_vocabulary(image_paths, vocab_size):
+def build_vocabulary(image_paths, vocab_size, cluster_size):
     """ Sample SIFT descriptors, cluster them using k-means, and return the fitted k-means model.
     NOTE: We don't necessarily need to use the entire training dataset. You can use the function
     sample_images() to sample a subset of images, and pass them into this function.
@@ -33,7 +33,6 @@ def build_vocabulary(image_paths, vocab_size):
     for i, path in enumerate(image_paths):
         # Load features from each image
         features = np.loadtxt(path, delimiter=',',dtype=float)
-        sift_keypoints = features[:, :2]
         sift_descriptors = features[:, 2:]
 
         # TODO: Randomly sample n_each descriptors from sift_descriptor and store them into descriptors
@@ -51,7 +50,7 @@ def build_vocabulary(image_paths, vocab_size):
     # You can use KMeans from sci-kit learn.
     # Reference: https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html
     # Fitting K-means
-    kmeans = KMeans(50).fit(descriptors)
+    kmeans = KMeans(cluster_size).fit(descriptors)
     return kmeans
     
 def get_bags_of_sifts(image_paths, kmeans):
@@ -114,6 +113,7 @@ def load(ds_path):
         labels[i] = np.argwhere(np.core.defchararray.equal(classes, folder))[0,0]
 
     # Randomize the order
+
     idx = np.random.choice(n_files, size=n_files, replace=False)
     image_paths = image_paths[idx]
     labels = labels[idx]

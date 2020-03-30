@@ -5,7 +5,7 @@ import numpy as np
 from util import load, build_vocabulary, get_bags_of_sifts
 from classifiers import nearest_neighbor_classify, svm_classify
 import matplotlib.pyplot as plt
-
+from os.path import dirname, basename
 #For this assignment, you will need to report performance for sift features on two different classifiers:
 # 1) Bag of sift features and nearest neighbor classifier
 # 2) Bag of sift features and linear SVM classifier
@@ -25,37 +25,48 @@ test_image_paths, test_labels = load("sift/test")
  N is the number of paths passed to the function and d is the 
  dimensionality of each image representation. See the starter code for
  each function for more details. '''
-
-labels = ["Bedroom", "Coast", "Forest", "Highway", "Industrial", "InsideCity", "Kitchen", 
-"LivingRoom", "Mountain", "Office", "OpenCountry", "Store", "Street", "Suburb", "TallBuilding"]
-
+labels = []
+# Extract label names
+for i in range(15):
+    # Extract first index where label is equal to i
+    index = np.where(train_labels==i)[0][0]
+    # Extract folder name one step up for the index with the label and append to labels
+    labels.append(basename(dirname(train_image_paths[index])))
 
 #TODO: You code build_vocabulary function in util.py
 #TODO: You code get_bags_of_sifts function in util.py 
 
 # Create function for doing getting features and saving
-def bags_of_sifts_save(train_image_paths, test_image_paths, vocabSize, image_set_name):
+def bags_of_sifts_save(train_image_paths, test_image_paths, vocabSize, clusterSize, image_set_name):
     print "Generating K-means Clusters"
-    kmeans = build_vocabulary(train_image_paths, vocab_size=vocabSize)
+    kmeans = build_vocabulary(train_image_paths, vocabSize, clusterSize)
     print "Getting bag-of-SIFT Features"
     train_image_feats = get_bags_of_sifts(train_image_paths, kmeans)
     test_image_feats = get_bags_of_sifts(test_image_paths, kmeans)
     print "Creating np data files"
-    train_feats_file = open("train_image_feats_" + str(image_set_name), "ab")
-    test_feats_file = open("test_image_feats_" + str(image_set_name), "ab")
+    train_feats_file = open("train_image_feats_" + str(image_set_name) + ".npy", "wb")
+    test_feats_file = open("test_image_feats_" + str(image_set_name) + ".npy", "wb")
+    train_labels_file = open("train_image_labels_" + str(image_set_name) + ".npy", "wb")
+    test_labels_file = open("test_image_labels_" + str(image_set_name) + ".npy", "wb")
     np.save(train_feats_file, train_image_feats)
     np.save(test_feats_file, test_image_feats)
+    np.save(train_labels_file, train_labels)
+    np.save(test_labels_file, test_labels)
     train_feats_file.close()
     test_feats_file.close()
+    train_labels_file.close()
+    test_labels_file.close()
     return
 
-bags_of_sifts_save(train_image_paths, test_image_paths, 200, "all")
+# bags_of_sifts_save(train_image_paths, test_image_paths, 200, 100, "all")
 
 
 print "Load saved features for training and testing"
 train_image_feats = np.load("train_image_feats_all.npy")
 test_image_feats = np.load("test_image_feats_all.npy")
-
+train_labels = np.load("train_image_labels_all.npy")
+test_labels = np.load("test_image_labels_all.npy")
+'''
 # average histograms
 
 # For each picture histogram, increment the correct category histogram. 
@@ -73,7 +84,7 @@ for i in range(15):
 #If you want to avoid recomputing the features while debugging the
 #classifiers, you can either 'save' and 'load' the extracted features
 #to/from a file.
-
+'''
 ''' Step 2: Classify each test image by training and using the appropriate classifier
  Each function to classify test features will return an N x l cell array,
  where N is the number of test cases and each entry is a string indicating
@@ -82,17 +93,18 @@ for i in range(15):
 
 print('Using nearest neighbor classifier to predict test set categories\n')
 #TODO: YOU CODE nearest_neighbor_classify function from classifers.py
-pred_labels_knn = nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats, 1)
+pred_labels_knn = nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats, 5)
 knn_acc = np.mean(pred_labels_knn == test_labels)
-print "knn accuracy: " + str(knn_acc)
 
 print('Using support vector machine to predict test set categories\n')
 #TODO: YOU CODE svm_classify function from classifers.py
-pred_labels_svm = svm_classify(train_image_feats, train_labels, test_image_feats)
+pred_labels_svm = svm_classify(train_image_feats, train_labels, test_image_feats, 15)
 svm_acc = np.mean(pred_labels_svm == test_labels)
-print "svm accuracy: " + str(svm_acc)
 
 print('---Evaluation---\n')
+
+print "knn accuracy: " + str(knn_acc)
+print "svm accuracy: " + str(svm_acc)
 # Step 3: Build a confusion matrix and score the recognition system for 
 #         each of the classifiers.
 # TODO: In this step you will be doing evaluation. 
