@@ -82,14 +82,15 @@ for i in range(15):
 
 print('Using nearest neighbor classifier to predict test set categories\n')
 #TODO: YOU CODE nearest_neighbor_classify function from classifers.py
-pred_labels_knn = nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats)
-  
+pred_labels_knn = nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats, 1)
+knn_acc = np.mean(pred_labels_knn == test_labels)
+print "knn accuracy: " + str(knn_acc)
 
 print('Using support vector machine to predict test set categories\n')
 #TODO: YOU CODE svm_classify function from classifers.py
 pred_labels_svm = svm_classify(train_image_feats, train_labels, test_image_feats)
-
-
+svm_acc = np.mean(pred_labels_svm == test_labels)
+print "svm accuracy: " + str(svm_acc)
 
 print('---Evaluation---\n')
 # Step 3: Build a confusion matrix and score the recognition system for 

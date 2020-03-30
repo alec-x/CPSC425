@@ -1,12 +1,13 @@
  #Starter code prepared by Borna Ghotbi for computer vision
  #based on MATLAB code by James Hay
-
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn import svm
 '''This function will predict the category for every test image by finding
 the training image with most similar features. Instead of 1 nearest
 neighbor, you can vote based on k nearest neighbors which will increase
 performance (although you need to pick a reasonable value for k). '''
 
-def nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats):
+def nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats, neighbors):
 
     '''
     Parameters
@@ -16,7 +17,8 @@ def nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats)
         			  indicating the ground truth one-hot vector for each training image.
     	test_image_feats: is an M x d matrix, where d is the dimensionality of the
     					  feature representation. You can assume M = N unless you've modified the starter code.
-        
+        test_labels: is an M x 1 matrix.
+        neighbors: is an int
     Returns
         -------
     	is an M x l cell array, where each row is a one-hot vector 
@@ -27,6 +29,10 @@ def nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats)
     	# You can use knn from sci-kit learn.
         # Reference: https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
     '''
+    neigh = KNeighborsClassifier(n_neighbors = neighbors)
+    neigh.fit(train_image_feats, train_labels)
+
+    predicted_labels = neigh.predict(test_image_feats)
     return predicted_labels
 
 
@@ -48,7 +54,7 @@ def svm_classify(train_image_feats, train_labels, test_image_feats):
         			  indicating the ground truth one-hot vector for each training image.
     	test_image_feats: is an M x d matrix, where d is the dimensionality of the
     					  feature representation. You can assume M = N unless you've modified the starter code.
-        
+
     Returns
         -------
     	is an M x l cell array, where each row is a one-hot vector 
@@ -60,5 +66,9 @@ def svm_classify(train_image_feats, train_labels, test_image_feats):
         # Reference: https://scikit-learn.org/stable/modules/svm.html
 
     '''
+    svm_model = svm.SVC()
+    svm_model.fit(train_image_feats, train_labels)
+
+    predicted_labels = svm_model.predict(test_image_feats)
     return predicted_labels
 
