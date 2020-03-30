@@ -40,7 +40,7 @@ def build_vocabulary(image_paths, vocab_size):
         # Randomly select indices n_each number of times
         randIndexes = [np.random.randint(0,sift_descriptors.shape[0] - 1) for _ in range(n_each)]
         
-        
+        # For each i image, select j locations to randomly sample for sift_descriptor. assign this descriptor to descriptors.
         for j, index in enumerate(randIndexes):
             descriptors[i*n_each+j] = sift_descriptors[index]
             if ((i*n_each+j) % 1000) == 0: 
@@ -72,7 +72,9 @@ def get_bags_of_sifts(image_paths, kmeans):
     for i, path in enumerate(image_paths):
         # Load features from each image
         features = np.loadtxt(path, delimiter=',',dtype=float)
-        print features.shape
+        labels = kmeans.predict(features[:,2:])
+        for label in labels:
+            image_feats[i][label] = image_feats[i][label] + 1.0/features.shape[0]
         # TODO: Assign each feature to the closest cluster center
         # Again, each feature consists of the (x, y) location and the 128-dimensional sift descriptor
         # You can access the sift descriptors part by features[:, 2:]
