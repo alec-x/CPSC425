@@ -43,12 +43,14 @@ def build_vocabulary(image_paths, vocab_size):
         # For each i image, select j locations to randomly sample for sift_descriptor. assign this descriptor to descriptors.
         for j, index in enumerate(randIndexes):
             descriptors[i*n_each+j] = sift_descriptors[index]
+
+            # Print progress
             if ((i*n_each+j) % 1000) == 0: 
                 print i*n_each+j
     # TODO: pefrom k-means clustering to cluster sampled sift descriptors into vocab_size regions.
     # You can use KMeans from sci-kit learn.
     # Reference: https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html
-    print "fitting K-Means"
+    # Fitting K-means
     kmeans = KMeans(50).fit(descriptors)
     return kmeans
     
@@ -70,14 +72,16 @@ def get_bags_of_sifts(image_paths, kmeans):
     image_feats = np.zeros((n_image, vocab_size))
 
     for i, path in enumerate(image_paths):
-        # Load features from each image
-        features = np.loadtxt(path, delimiter=',',dtype=float)
-        labels = kmeans.predict(features[:,2:])
-        for label in labels:
-            image_feats[i][label] = image_feats[i][label] + 1.0/features.shape[0]
         # TODO: Assign each feature to the closest cluster center
         # Again, each feature consists of the (x, y) location and the 128-dimensional sift descriptor
         # You can access the sift descriptors part by features[:, 2:]
+        # Load features from each image
+        features = np.loadtxt(path, delimiter=',',dtype=float)
+        labels = kmeans.predict(features[:,2:])
+        # For each label, increment the image i's label bin in image_feats by the normalized amount
+        for label in labels:
+            image_feats[i][label] = image_feats[i][label] + 1.0/features.shape[0]
+
 
         # TODO: Build a histogram normalized by the number of descriptors
 

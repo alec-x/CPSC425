@@ -5,7 +5,6 @@ import numpy as np
 from util import load, build_vocabulary, get_bags_of_sifts
 from classifiers import nearest_neighbor_classify, svm_classify
 import matplotlib.pyplot as plt
-import pickle
 
 #For this assignment, you will need to report performance for sift features on two different classifiers:
 # 1) Bag of sift features and nearest neighbor classifier
@@ -20,7 +19,6 @@ import pickle
 print('Getting paths and labels for all train and test data\n')
 train_image_paths, train_labels = load("sift/train")
 test_image_paths, test_labels = load("sift/test")
-       
 
 ''' Step 1: Represent each image with the appropriate feature
  Each function to construct features should return an N x d matrix, where
@@ -28,23 +26,32 @@ test_image_paths, test_labels = load("sift/test")
  dimensionality of each image representation. See the starter code for
  each function for more details. '''
 
-        
+labels = ["Bedroom", "Coast", "Forest", "Highway", "Industrial", "InsideCity", "Kitchen", 
+"LivingRoom", "Mountain", "Office", "OpenCountry", "Store", "Street", "Suburb", "TallBuilding"]
+
 
 #TODO: You code build_vocabulary function in util.py
 #TODO: You code get_bags_of_sifts function in util.py 
-'''
-# results pickled after initial run
-kmeans = build_vocabulary(train_image_paths, vocab_size=200)
-train_image_feats = get_bags_of_sifts(train_image_paths, kmeans)
-test_image_feats = get_bags_of_sifts(test_image_paths, kmeans)
-train_feats_file = open("train_image_feats_pickle", "ab")
-test_feats_file = open("test_image_feats_pickle", "ab")
-pickle.dump(train_image_feats, train_feats_file)
-pickle.dump(test_image_feats, test_feats_file)
-train_feats_file.close()
-test_feats_file.close()
-'''
 
+# Create function for doing getting features and saving
+def bags_of_sifts_save(train_image_paths, test_image_paths, vocabSize, image_set_name):
+    print "Generating K-means Clusters"
+    kmeans = build_vocabulary(train_image_paths, vocab_size=vocabSize)
+    print "Getting bag-of-SIFT Features"
+    train_image_feats = get_bags_of_sifts(train_image_paths, kmeans)
+    test_image_feats = get_bags_of_sifts(test_image_paths, kmeans)
+
+    train_feats_file = open("train_image_feats_" + str(image_set_name), "ab")
+    test_feats_file = open("test_image_feats" + str(image_set_name), "ab")
+    np.save(train_feats_file, train_image_feats)
+    np.save(test_feats_file, test_image_feats)
+    train_feats_file.close()
+    test_feats_file.close()
+    return
+
+bags_of_sifts_save(train_image_paths, test_image_paths, 200, "all")
+
+'''
 print "Load pickled features for training and testing"
 train_image_feats = pickle.load(open("train_image_feats_pickle", "rb"))
 test_image_feats = pickle.load(open("test_image_feats_pickle", "rb"))
@@ -55,6 +62,7 @@ average_feats = train_image_feats.sum(axis=0)
 print "Generating Graph"
 plt.bar(range(train_image_feats.shape[1]), average_feats)
 plt.show()
+'''
 #If you want to avoid recomputing the features while debugging the
 #classifiers, you can either 'save' and 'load' the extracted features
 #to/from a file.
