@@ -29,9 +29,12 @@ def nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats,
     	# You can use knn from sci-kit learn.
         # Reference: https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
     '''
+    # Create KNN with n_neighbors being the number of neighbors referenced when predicting
     neigh = KNeighborsClassifier(n_neighbors = neighbors)
+    # Train KNN classifier using training features and labels
     neigh.fit(train_image_feats, train_labels)
 
+    # Predict testing labels using trained KNN model and testing features
     predicted_labels = neigh.predict(test_image_feats)
     return predicted_labels
 
@@ -66,9 +69,12 @@ def svm_classify(train_image_feats, train_labels, test_image_feats,C_val):
         # Reference: https://scikit-learn.org/stable/modules/svm.html
 
     '''
+    # Create svm model with regularization parameter C
     svm_model = svm.LinearSVC(C=C_val)
+    # Train svm model using training features and labels
     svm_model.fit(train_image_feats, train_labels)
 
+    # Predict the testing label given the testing features
     predicted_labels = svm_model.predict(test_image_feats)
     return predicted_labels
 

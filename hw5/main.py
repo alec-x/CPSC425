@@ -38,6 +38,7 @@ for i in range(15):
 #TODO: You code get_bags_of_sifts function in util.py 
 
 # Create function for doing getting features and saving
+# Note clusterSize is NUMBER OF CLUSTERS
 def bags_of_sifts_save(train_image_paths, test_image_paths, vocabSize, clusterSize, image_set_name):
     print "Generating K-means Clusters"
     kmeans = build_vocabulary(train_image_paths, vocabSize, clusterSize)
@@ -45,21 +46,25 @@ def bags_of_sifts_save(train_image_paths, test_image_paths, vocabSize, clusterSi
     train_image_feats = get_bags_of_sifts(train_image_paths, kmeans)
     test_image_feats = get_bags_of_sifts(test_image_paths, kmeans)
     print "Creating np data files"
+    # Open files for binary writing
     train_feats_file = open("train_image_feats_" + str(image_set_name) + ".npy", "wb")
     test_feats_file = open("test_image_feats_" + str(image_set_name) + ".npy", "wb")
     train_labels_file = open("train_image_labels_" + str(image_set_name) + ".npy", "wb")
     test_labels_file = open("test_image_labels_" + str(image_set_name) + ".npy", "wb")
+    # Save np objects into files
     np.save(train_feats_file, train_image_feats)
     np.save(test_feats_file, test_image_feats)
     np.save(train_labels_file, train_labels)
     np.save(test_labels_file, test_labels)
+    # Safely close files
     train_feats_file.close()
     test_feats_file.close()
     train_labels_file.close()
     test_labels_file.close()
     return
 
-# bags_of_sifts_save(train_image_paths, test_image_paths, 200, 100, "all")
+# Call function
+bags_of_sifts_save(train_image_paths, test_image_paths, 200, 100, "all")
 
 
 print "Load saved features for training and testing"
@@ -67,7 +72,7 @@ train_image_feats = np.load("train_image_feats_all.npy")
 test_image_feats = np.load("test_image_feats_all.npy")
 train_labels = np.load("train_image_labels_all.npy")
 test_labels = np.load("test_image_labels_all.npy")
-'''
+
 # average histograms
 
 # For each picture histogram, increment the correct category histogram. 
@@ -85,7 +90,7 @@ for i in range(15):
 #If you want to avoid recomputing the features while debugging the
 #classifiers, you can either 'save' and 'load' the extracted features
 #to/from a file.
-'''
+
 ''' Step 2: Classify each test image by training and using the appropriate classifier
  Each function to classify test features will return an N x l cell array,
  where N is the number of test cases and each entry is a string indicating
@@ -94,42 +99,51 @@ for i in range(15):
 
 print('Using nearest neighbor classifier to predict test set categories\n')
 #TODO: YOU CODE nearest_neighbor_classify function from classifers.py
-pred_labels_knn = nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats, 5)
+pred_labels_knn = nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats, 100)
+# Measure % accuracy by creating boolean == vector between predictions and labels, then taking mean
 knn_acc = np.mean(pred_labels_knn == test_labels)
 
 print('Using support vector machine to predict test set categories\n')
 #TODO: YOU CODE svm_classify function from classifers.py
-pred_labels_svm = svm_classify(train_image_feats, train_labels, test_image_feats, 15)
+pred_labels_svm = svm_classify(train_image_feats, train_labels, test_image_feats, 2)
 svm_acc = np.mean(pred_labels_svm == test_labels)
 
 print('---Evaluation---\n')
 
 print "knn accuracy: " + str(knn_acc)
 print "svm accuracy: " + str(svm_acc)
-print np.sum(pred_labels_knn[pred_labels_knn==0] == test_labels[test_labels==0])
 
+# Initialize confusion matrix
 confusion_knn = np.zeros((15,15))
 confusion_svm = np.zeros((15,15))
 
 for i in range(len(test_labels)):
+    # For each label pair, find the predicted column and increment the prediction row
         confusion_knn[pred_labels_knn[i]][test_labels[i]] += 1
         confusion_svm[pred_labels_svm[i]][test_labels[i]] += 1
 
+# Plot the knn confusion matrix
 fig = plt.figure()
 ax = fig.add_subplot(111)
+# Create data grid
 cax = ax.matshow(confusion_knn)
 fig.colorbar(cax)
+# Assign labels to ticks
 ax.set_xticks(np.arange(len(labels)))
 ax.set_yticks(np.arange(len(labels)))
 ax.set_xticklabels(labels)
 ax.set_yticklabels(labels)
+# Make sure ticks only appear on the bottom, not top
 ax.tick_params(axis="x", bottom=True, top=False, labelbottom=True, labeltop=False)
+# Rotate ticks 90 degrees
 plt.xticks(rotation=90)
 plt.title("Confusion Matrix for KNN")
+# Save figure with correct formatting
 plt.tight_layout()
-plt.savefig('./q6cm/knn.png')
+plt.savefig('./q6cm/bad_knn.png')
 plt.clf()
 
+# Same as above with svm confusion matrix instead of knn
 fig2 = plt.figure()
 ax2 = fig2.add_subplot(111)
 cax2 = ax2.matshow(confusion_svm)
@@ -142,7 +156,7 @@ ax2.tick_params(axis="x", bottom=True, top=False, labelbottom=True, labeltop=Fal
 plt.xticks(rotation=90)
 plt.title("Confusion Matrix for SVM")
 plt.tight_layout()
-plt.savefig('./q6cm/svm.png')
+plt.savefig('./q6cm/worst_svm.png')
 plt.clf()
 # Step 3: Build a confusion matrix and score the recognition system for 
 #         each of the classifiers.
