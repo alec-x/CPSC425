@@ -6,6 +6,7 @@ from util import load, build_vocabulary, get_bags_of_sifts
 from classifiers import nearest_neighbor_classify, svm_classify
 import matplotlib.pyplot as plt
 from os.path import dirname, basename
+
 #For this assignment, you will need to report performance for sift features on two different classifiers:
 # 1) Bag of sift features and nearest neighbor classifier
 # 2) Bag of sift features and linear SVM classifier
@@ -105,6 +106,44 @@ print('---Evaluation---\n')
 
 print "knn accuracy: " + str(knn_acc)
 print "svm accuracy: " + str(svm_acc)
+print np.sum(pred_labels_knn[pred_labels_knn==0] == test_labels[test_labels==0])
+
+confusion_knn = np.zeros((15,15))
+confusion_svm = np.zeros((15,15))
+
+for i in range(len(test_labels)):
+        confusion_knn[pred_labels_knn[i]][test_labels[i]] += 1
+        confusion_svm[pred_labels_svm[i]][test_labels[i]] += 1
+
+fig = plt.figure()
+ax = fig.add_subplot(111)
+cax = ax.matshow(confusion_knn)
+fig.colorbar(cax)
+ax.set_xticks(np.arange(len(labels)))
+ax.set_yticks(np.arange(len(labels)))
+ax.set_xticklabels(labels)
+ax.set_yticklabels(labels)
+ax.tick_params(axis="x", bottom=True, top=False, labelbottom=True, labeltop=False)
+plt.xticks(rotation=90)
+plt.title("Confusion Matrix for KNN")
+plt.tight_layout()
+plt.savefig('./q6cm/knn.png')
+plt.clf()
+
+fig2 = plt.figure()
+ax2 = fig2.add_subplot(111)
+cax2 = ax2.matshow(confusion_svm)
+fig2.colorbar(cax2)
+ax2.set_xticks(np.arange(len(labels)))
+ax2.set_yticks(np.arange(len(labels)))
+ax2.set_xticklabels(labels)
+ax2.set_yticklabels(labels)
+ax2.tick_params(axis="x", bottom=True, top=False, labelbottom=True, labeltop=False)
+plt.xticks(rotation=90)
+plt.title("Confusion Matrix for SVM")
+plt.tight_layout()
+plt.savefig('./q6cm/svm.png')
+plt.clf()
 # Step 3: Build a confusion matrix and score the recognition system for 
 #         each of the classifiers.
 # TODO: In this step you will be doing evaluation. 
