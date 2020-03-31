@@ -39,9 +39,9 @@ for i in range(15):
 
 # Create function for doing getting features and saving
 # Note clusterSize is NUMBER OF CLUSTERS
-def bags_of_sifts_save(train_image_paths, test_image_paths, vocabSize, clusterSize, image_set_name):
+def bags_of_sifts_save(train_image_paths, test_image_paths, vocabSize, image_set_name):
     print "Generating K-means Clusters"
-    kmeans = build_vocabulary(train_image_paths, vocabSize, clusterSize)
+    kmeans = build_vocabulary(train_image_paths, vocabSize)
     print "Getting bag-of-SIFT Features"
     train_image_feats = get_bags_of_sifts(train_image_paths, kmeans)
     test_image_feats = get_bags_of_sifts(test_image_paths, kmeans)
@@ -64,7 +64,7 @@ def bags_of_sifts_save(train_image_paths, test_image_paths, vocabSize, clusterSi
     return
 
 # Call function
-bags_of_sifts_save(train_image_paths, test_image_paths, 200, 100, "all")
+# bags_of_sifts_save(train_image_paths, test_image_paths, 200, "all")
 
 
 print "Load saved features for training and testing"
@@ -85,6 +85,7 @@ print "Generating Graphs"
 for i in range(15):
     plt.bar(range(train_image_feats.shape[1]), categorized_feats[i])
     plt.title("Histogram of features for " + labels[i])
+    plt.tight_layout()
     plt.savefig('./q4histograms/' + labels[i] + '.png')
     plt.clf()
 #If you want to avoid recomputing the features while debugging the
@@ -99,13 +100,13 @@ for i in range(15):
 
 print('Using nearest neighbor classifier to predict test set categories\n')
 #TODO: YOU CODE nearest_neighbor_classify function from classifers.py
-pred_labels_knn = nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats, 100)
+pred_labels_knn = nearest_neighbor_classify(train_image_feats, train_labels, test_image_feats, 5)
 # Measure % accuracy by creating boolean == vector between predictions and labels, then taking mean
 knn_acc = np.mean(pred_labels_knn == test_labels)
 
 print('Using support vector machine to predict test set categories\n')
 #TODO: YOU CODE svm_classify function from classifers.py
-pred_labels_svm = svm_classify(train_image_feats, train_labels, test_image_feats, 2)
+pred_labels_svm = svm_classify(train_image_feats, train_labels, test_image_feats, 20)
 svm_acc = np.mean(pred_labels_svm == test_labels)
 
 print('---Evaluation---\n')

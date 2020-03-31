@@ -3,7 +3,7 @@ import os
 import glob
 from sklearn.cluster import KMeans
 
-def build_vocabulary(image_paths, vocab_size, cluster_size):
+def build_vocabulary(image_paths, vocab_size):
     """ Sample SIFT descriptors, cluster them using k-means, and return the fitted k-means model.
     NOTE: We don't necessarily need to use the entire training dataset. You can use the function
     sample_images() to sample a subset of images, and pass them into this function.
@@ -50,7 +50,7 @@ def build_vocabulary(image_paths, vocab_size, cluster_size):
     # You can use KMeans from sci-kit learn.
     # Reference: https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html
     # Fitting K-means
-    kmeans = KMeans(cluster_size).fit(descriptors)
+    kmeans = KMeans(vocab_size).fit(descriptors)
     return kmeans
     
 def get_bags_of_sifts(image_paths, kmeans):
